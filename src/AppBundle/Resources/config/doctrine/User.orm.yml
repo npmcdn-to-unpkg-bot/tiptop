@@ -1,0 +1,38 @@
+Kit\SystemBundle\Entity\User:
+    type: entity
+    table: system_users
+    repositoryClass: Kit\SystemBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        role_id:
+          targetEntity: Role
+          inversedBy: users
+          joinColumn:
+              name: role_id
+              referencedColumnName: id
+    fields:
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        isActive:
+            type: boolean
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+            notnull: false
+        deletedAt:
+            type: datetime
+            notnull: false
+    lifecycleCallbacks: {  }

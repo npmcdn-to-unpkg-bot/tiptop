@@ -1,0 +1,20 @@
+_ads_index:
+    path:  /ads
+    defaults: { _controller: KitAdsBundle:Index:index }
+    
+_ads_view:
+    path:  /article/{id}/view
+    defaults: { _controller: KitAdsBundle:Index:view }
+    
+_ads_admin_index:
+    path:  /admin/ads
+    defaults: { _controller: KitAdsBundle:IndexAdmin:index }
+    
+_ads_admin_ad_add:
+    path:  /admin/ads/add
+    defaults: { _controller: KitAdsBundle:IndexAdmin:add }
+    
+_ads_admin_ad_edit:
+    path: admin/ads/{id}/edit
+    defaults: { _controller: KitAdsBundle:IndexAdmin:Edit }
+    

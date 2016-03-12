@@ -1,0 +1,7 @@
+<div class="btn-group" role="group" aria-label="...">
+    {% for item in items %}
+          <button type="button" class="btn btn-default">
+              <a href="{{ path(item.path) }}" class="list-group-item{% if routeName == item.path %} active{% endif %}">{{ item.name }}</a>
+          </button>
+    {% endfor %}
+</div>

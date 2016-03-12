@@ -1,0 +1,15 @@
+{% extends "KitSystemBundle::layout.html.twig" %}
+
+{% block title "Полезные статии" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">Полезные статии</h1>
+    <ul id="demo-list">
+        {% for item in items %}
+            <li><h2><a href="{{ path('_articles_view', {'id': item.id}) }}">{{ item.title }}</a></h2></li>
+        {% endfor %}
+    </ul>
+     <div class="clear h40"></div>
+{% endblock %}

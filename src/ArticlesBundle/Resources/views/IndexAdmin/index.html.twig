@@ -1,0 +1,28 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block title "Администрирование - Новости" %}
+
+{% block content %}
+    
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('_articles_admin_add') }}">Добавить</a>
+    </button>
+    <br/>
+    <br/>
+    <div class="kit__block">
+        {% for item in articles %}
+            <div class="media">
+              <div class="media-left media-middle">
+                <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">
+                  <img class="media-object" src="{{ asset('bundles/system/images/empty.svg') }}" alt="{{ item.title }}">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">{{ item.title }}</a></h4>
+                {{ item.body }}
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

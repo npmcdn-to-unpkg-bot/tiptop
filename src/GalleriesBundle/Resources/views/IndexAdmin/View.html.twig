@@ -1,0 +1,38 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block title "Администрирование - Новости" %}
+
+{% block head %}
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="{{ asset('bundles/system/css/jquery.fancybox.css') }}" type="text/css" media="screen" />
+    <script type="text/javascript" src="{{ asset('bundles/system/js/jquery.fancybox.pack.js') }}"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+{% endblock %}
+    
+{% block content %}
+    
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('_gallery_admin_index') }}">Назад</a>
+    </button>
+    <br/>
+    <br/>
+    <div class="kit__block">
+    <div class="row">
+        {% for item in images %}
+            
+              <div class="col-xs-6 col-md-3">
+                <a class="fancybox" rel="group" href="/{{ item.getWebPath }}" class="thumbnail">
+                  <img src="{{ item.getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [155, 155] }}) }}"/>
+                </a>
+              </div>
+            
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

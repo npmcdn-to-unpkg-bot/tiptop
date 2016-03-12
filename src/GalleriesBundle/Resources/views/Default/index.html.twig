@@ -1,0 +1,32 @@
+{% set disableRightMenu = true %}
+
+{% extends "KitSystemBundle::layout.html.twig" %}
+
+{% block title "" %}
+
+{% block content_header '' %}
+
+{% block content %}
+
+        <div class="section section_with_padding" id="testimonial"> 
+            <h2>Примеры работ</h2>
+            <p><em>Aliquam venenatis, quam a semper blandit, lectus mi convallis orci, ut dictum ante leo non leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat, urna in gravida rhoncus, mi elit luctus nibh, a luctus erat elit vel quam. </em></p>
+            
+            <div class="clear h40"></div>
+            
+            {% for key, item in galleries %}
+                <div class="half {% if key%2 == 0 %}left{% else %}right{% endif %}">
+                    <div class="img_border img_fl">
+                        <a href="{{ path('_gallery_view', {'id': item.id}) }}">
+                            <img src="/uploads/galleries/{{ item.firstImage.image }}" width="80px" alt="image 1">
+                        </a>
+                    </div>
+                    {{ item.body | raw }}
+                    <cite>{{ item.title }}</cite>
+                </div>
+            {% endfor %}
+        </div>
+    
+        <div class="clear h40"></div>
+    
+{% endblock %}

@@ -1,0 +1,36 @@
+Kit\GalleriesBundle\Entity\GalleryImage:
+    type: entity
+    table: gelleries_gallery_image
+    repositoryClass: Kit\GalleriesBundle\Entity\GalleryImageRepository
+    manyToOne:
+        gallery:
+            targetEntity: Gallery
+            inversedBy: images
+            joinColumn:
+                name: gallery_id
+                referencedColumnName: id
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+#        objectId:
+#            type: integer
+#            column: object_id
+        gallery_id:
+            type: integer
+        image:
+            type: string
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        deletedAt:
+            type: datetime
+            column: deleted_at
+#    lifecycleCallbacks:
+#        prePersist: [createObject]

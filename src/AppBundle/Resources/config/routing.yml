@@ -1,0 +1,41 @@
+_system_index:
+    path:  /index
+    defaults: { _controller: AppBundle:Index:index }
+
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login }
+
+login_check:
+    path: /admin/login_check
+    defaults: { _controller: AppBundle:Security:check }
+    requirements:
+        _username:  \w
+        _password:  \w
+
+logout:
+    path:   /admin/logout
+
+_system_admin_index:
+    path:  /admin
+    defaults: { _controller: AppBundle:IndexAdmin:index }
+
+_system_admin_settings:
+    path:  /admin/settings
+    defaults: { _controller: AppBundle:SettingsAdmin:index }
+
+_system_page:
+    path: /page/{slug}.html
+    defaults: { _controller: AppBundle:Pages:Index }
+    
+_system_admin_pages:
+    path: admin/pages
+    defaults: { _controller: AppBundle:PagesAdmin:List }
+
+_system_admin_pages_add:
+    path: admin/pages/add
+    defaults: { _controller: AppBundle:PagesAdmin:Add }
+
+_system_admin_pages_edit:
+    path: admin/pages/{id}/edit
+    defaults: { _controller: AppBundle:PagesAdmin:Edit }

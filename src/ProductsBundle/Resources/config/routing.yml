@@ -1,0 +1,7 @@
+kit_products_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: KitProductsBundle:Default:index }
+
+_products_admin_index:
+    path:  /admin/products
+    defaults: { _controller: KitProductsBundle:IndexAdmin:index }

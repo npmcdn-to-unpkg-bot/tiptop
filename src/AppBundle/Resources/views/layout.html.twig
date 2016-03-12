@@ -1,0 +1,56 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block head %}
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="{{ asset('bundles/system/css/jquery.fancybox.css') }}" type="text/css" media="screen" />
+    <script type="text/javascript" src="{{ asset('bundles/system/js/jquery.fancybox.pack.js') }}"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-message">
+                <em>Notice</em>: {{ flashMessage }}
+            </div>
+        {% endfor %}
+        <div class="row row-offcanvas row-offcanvas-right">
+
+            {#{ render(controller('AppBundle:Default:Menu')) }#}
+
+            {% block content %}{% endblock %}
+
+            {% if  disableRightMenu is not defined or disableRightMenu != true %}
+                {#{ render(controller('AppBundle:Default:RightMenu')) }#}
+            {% endif %}
+
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                </div>
+            </div><!--/.sidebar-offcanvas-->
+        </div><!--/row-->
+        
+        <hr>
+
+        <footer>
+            <p>© 2015 Company, Inc.</p>
+        </footer>
+    </div><!--/.container-->
+
+{% endblock %}

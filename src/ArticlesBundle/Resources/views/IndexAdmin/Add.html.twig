@@ -1,0 +1,35 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block head %}
+    <script src="{{ asset('bundles/system/js/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('_system_admin_pages') }}">Назад</a>
+    </button>
+    <br/>
+    <br/>
+    <form class="kit__block"  action="{{ path('_articles_admin_add') }}" method="post" {{ form_enctype(form) }}>
+        
+        {% form_theme form 'KitSystemBundle:Form:fields.html.twig' %}
+        
+        {{ form_widget(form) }}
+        
+        <br/>
+        <input type="submit" />
+    </form>
+    
+{% endblock %}

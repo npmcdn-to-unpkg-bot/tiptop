@@ -1,0 +1,10 @@
+Kit\SystemBundle\Entity\Object:
+    type: entity
+    table: system_objects
+    id:
+        id:
+            type: integer
+    fields:
+        type:
+            type: string
+            length: 80

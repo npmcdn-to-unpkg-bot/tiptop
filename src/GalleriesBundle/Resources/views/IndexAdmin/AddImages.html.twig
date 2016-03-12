@@ -1,0 +1,50 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block title "Symfony - Demos" %}
+    
+{% block head %}
+    <script src="{{ asset('bundles/system/js/jquery.fileupload.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            // Change this to the location of your server-side upload handler:
+            var url = window.location.hostname === 'blueimp.github.io' ? '//jquery-file-upload.appspot.com/' : 'server/php/';
+            $('#fileupload').fileupload({
+                url: url,
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        $('<p/>').text(file.name).appendTo('#files');
+                    });
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .progress-bar').css(
+                        'width',
+                        progress + '%'
+                    );
+                }
+            }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('_gallery_admin_index') }}">Назад</a>
+    </button>
+    <br/><br/>
+    
+    <form class="kit__block" action="{#{ path('_gallery_admin_add_images', {id:gallery.id}) }#}" method="post" {{ form_enctype(form) }}>
+        
+        {% form_theme form 'KitGalleriesBundle:Form:fields.html.twig' %}
+        
+        {{ form_widget(form) }}
+        
+        <br/>
+        <input type="submit" />
+    </form>
+
+{% endblock %}
+

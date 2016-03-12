@@ -1,0 +1,11 @@
+{% extends "KitSystemBundle::layout.html.twig" %}
+
+{% block title "{{ item.title }}" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">{{ item.title }}</h1>
+    {{ item.body | raw }}
+    <div class="clear h40"></div>
+{% endblock %}

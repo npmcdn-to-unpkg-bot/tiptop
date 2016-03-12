@@ -1,0 +1,18 @@
+Kit\SystemBundle\Entity\Role:
+    type: entity
+    table: system_role
+    repositoryClass: Kit\SystemBundle\Entity\RoleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 30
+        role:
+            type: string
+            length: 20
+    lifecycleCallbacks: {  }

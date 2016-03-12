@@ -1,0 +1,32 @@
+{% set disableRightMenu = true %}
+
+{% extends "KitSystemBundle::layout.html.twig" %}
+
+{% block title "" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/system/css/lightbox.css') }}">
+    <script src="{{ asset('bundles/system/js/lightbox.min.js') }}"></script>
+{% endblock %}
+    
+{% block content_header '' %}
+
+{% block content %}
+
+        <div class="section section_with_padding" id="testimonial"> 
+            <h2>{{ gallery.title }}</h2>
+            <p><em>{{ gallery.body | raw }}</em></p>
+            
+            <div class="clear h40"></div>
+            <div id="home_gallery" class="box no_mr">
+                {% for item in gallery.images %}
+                    <a href="/uploads/galleries/{{ item.image }}" data-lightbox="gallery">
+                        <img src="/uploads/galleries/{{ item.image }}" width="152px">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <div class="clear h40"></div>
+    
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block title "Администрирование - Новости" %}
+    
+{% block content %}
+    
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('_gallery_admin_add') }}">Добавить</a>
+    </button>
+    <br/>
+    <br/>
+    <div class="kit__block">
+        {% for item in galleries %}
+            <div class="media">
+              <div class="media-left media-middle">
+                    <img class="media-object" src="{{ item.images[0].getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [64, 64] }}) }}">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><a href="{{ path('_gallery_admin_show', { id: item.id }) }}">{{ item.title }}</a></h4>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-default">
+                      <a href="" />Удалить</a>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                      <a href="{{ path('_gallery_admin_add_images', { id: item.id }) }}"/>Добавить Фото</a>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                      <a href="{{ path('_gallery_admin_edit', { id: item.id }) }}">Редактировать</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

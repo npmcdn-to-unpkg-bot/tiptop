@@ -1,0 +1,16 @@
+AppBundle\Entity\Setting:
+    type: entity
+    table: system_settings
+    id:
+        name:
+            type: string
+            length: 255
+    fields:
+        value:
+            type: text
+        type:
+            type: string
+            length: 64
+        section:
+            type: string
+            length: 64

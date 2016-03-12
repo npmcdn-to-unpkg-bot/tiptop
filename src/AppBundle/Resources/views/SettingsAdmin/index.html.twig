@@ -1,0 +1,17 @@
+{% extends "KitSystemBundle::layout-admin.html.twig" %}
+
+{% block title "Symfony - Demos" %}
+
+{% block content %}
+    
+    <form class="kit__block" action="{{ path('_system_admin_settings') }}" method="post" {{ form_enctype(form) }}>
+        
+        {% form_theme form 'KitSystemBundle:Form:fields.html.twig' %}
+        
+        {{ form_widget(form) }}
+        
+        <input type="submit" />
+        
+    </form>
+    
+{% endblock %}

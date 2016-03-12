@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 
+    database_name: kit
+    database_user: root
+    database_password: 
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: eddaa56683b71200b2eb62121cd70b549ba09ee4

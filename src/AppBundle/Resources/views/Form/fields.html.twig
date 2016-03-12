@@ -1,0 +1,23 @@
+{% block text_widget %}
+    {{ dump(value) }}
+    <div class="text_widget">
+        {% set type = type|default('text') %}
+        {{ block('form_widget_simple') }}
+    </div>
+{% endblock %}
+
+{% block file_widget %}
+    {% spaceless %}
+
+    {{ block('form_widget') }}
+        
+    {% set runtimeConfig = {"thumbnail": {"size": [64, 64] }} %}
+
+    {% if image_path is defined and image_path is not null %}
+        <img src="{{ image_path | imagine_filter('my_thumb', runtimeConfig) }}" />
+    {% elseif data is defined and data is not null %}
+        <img src="{{ data | imagine_filter('my_thumb', runtimeConfig) }}" />
+    {% endif %}
+
+    {% endspaceless %}
+{% endblock %}

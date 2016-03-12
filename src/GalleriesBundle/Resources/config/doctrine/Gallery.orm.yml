@@ -1,0 +1,34 @@
+Kit\GalleriesBundle\Entity\Gallery:
+    type: entity
+    table: gelleries_gallery
+    repositoryClass: Kit\GalleriesBundle\Entity\GalleryRepository
+    oneToMany:
+        images:
+            targetEntity: GalleryImage
+            mappedBy: gallery
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+#        objectId:
+#            type: integer
+#            column: object_id
+        title:
+            type: string
+            length: 255
+        body:
+            type: text
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        deletedAt:
+            type: datetime
+            column: deleted_at
+#    lifecycleCallbacks:
+#        prePersist: [createObject]

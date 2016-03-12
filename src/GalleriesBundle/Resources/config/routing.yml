@@ -1,0 +1,31 @@
+kit_gallery_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: KitGalleriesBundle:Default:index }
+
+_gallery_index:
+    path:  /gallery
+    defaults: { _controller: KitGalleriesBundle:Default:index }
+
+_gallery_view:
+    path:  /gallery/{id}/view
+    defaults: { _controller: KitGalleriesBundle:Default:view }
+
+_gallery_admin_index:
+    path:  /admin/gallery
+    defaults: { _controller: KitGalleriesBundle:IndexAdmin:index }
+
+_gallery_admin_add:
+    path:  /admin/gallery/add
+    defaults: { _controller: KitGalleriesBundle:IndexAdmin:add }
+    
+_gallery_admin_edit:
+    path: admin/gallery/{id}/edit
+    defaults: { _controller: KitGalleriesBundle:IndexAdmin:Edit }
+    
+_gallery_admin_add_images:
+    path: admin/gallery/{id}/add/photo
+    defaults: { _controller: KitGalleriesBundle:IndexAdmin:AddImages }
+    
+_gallery_admin_show:
+    path: admin/gallery/{id}/view
+    defaults: { _controller: KitGalleriesBundle:IndexAdmin:View }

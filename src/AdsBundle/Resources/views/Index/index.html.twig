@@ -1,0 +1,23 @@
+{% extends "KitSystemBundle::layout.html.twig" %}
+
+{% block title "Полезные статии" %}
+
+{% block content_header '' %}
+
+{% set disableRightMenu = true %}
+
+{% block content %}
+    {% for item in items %}
+        <div class="media">
+          <div class="media-left">
+            <a href="{{ path('_ads_view', {'id': item.id}) }}">
+              <img class="media-object" src="..." alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ item.title }}</h4>
+            {{ item.body }}
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}

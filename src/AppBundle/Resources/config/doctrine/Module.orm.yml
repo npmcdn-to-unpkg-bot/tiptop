@@ -1,0 +1,15 @@
+Kit\SystemBundle\Entity\Module:
+    type: entity
+    table: system_modules
+    id:
+        id:
+            type: integer
+    fields:
+        slug:
+            type: string
+            length: 255
+        name:
+          type: string
+          length: 255
+        is_active:
+          type: boolean

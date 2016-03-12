@@ -1,0 +1,15 @@
+_articles_index:
+    path:  /articles
+    defaults: { _controller: KitArticlesBundle:Index:index }
+    
+_articles_view:
+    path:  /article/{id}/view
+    defaults: { _controller: KitArticlesBundle:Index:view }
+    
+_articles_admin_index:
+    path:  /admin/articles
+    defaults: { _controller: KitArticlesBundle:IndexAdmin:index }
+    
+_articles_admin_add:
+    path:  /admin/articles/add
+    defaults: { _controller: KitArticlesBundle:IndexAdmin:add }

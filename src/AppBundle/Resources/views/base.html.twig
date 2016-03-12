@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Bootstrap core CSS -->
+
+        <link rel="stylesheet" type="text/css" media="all"  href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" media="all"  href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}">
+        <link rel="stylesheet" type="text/css" media="all"  href="{{ asset('bundles/app/css/offcanvas.css') }}">
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/bootstrap-theme.min.css') }}">
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/jquery-ui.theme.min.css') }}">
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/default.css') }}">
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/firebug.css') }}">
+
+        <script src="{{ asset('bundles/app/js/jquery-1.12.1.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/ie-emulation-modes-warning.js') }}"></script>
+        
+        {% block head %}{% endblock %}
+    </head>
+    
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+          </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    {#{ render(controller('AppBundle:Default:MainMenu')) }#}
+
+    {% block body %}{% endblock %}
+
+  </body>
+</html>

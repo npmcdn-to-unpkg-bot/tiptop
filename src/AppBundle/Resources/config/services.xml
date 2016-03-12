@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    
+    <services>
+        <service id="app.routing_loader" class="AppBundle\Routing\ExtraLoader">
+            <tag name="routing.loader" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+        
+        <service id="kit_system.form.type.route" class="AppBundle\Form\Type\RouteType">
+            <argument type="service" id="router" />
+            <tag name="form.type" alias="route" />
+        </service>
+        
+        <service id="kernel.listener.app_admin_menu" class="AppBundle\EventListener\AdminMenuListener">
+            <tag name="kernel.event_listener" event="app.admin_menu" method="onAdminMenuBuild" />
+        </service>
+        
+<!--        <service id="acme_demo_bundle.image_type_extension" class="Kit\SystemBundle\Form\Extension\ImageTypeExtension">
+            <tag name="form.type_extension" alias="file" />
+        </service>-->
+        
+        <!--<service id="liip_imagine.filter.loader.my_custom_filter" class="Kit\SystemBundle\Filter\Loader\ImageFilterLoader">-->
+            <!--<tag name="liip_imagine.filter.loader" loader="my_custom_filter" />-->
+        <!--</service>-->
+        
+    </services>
+    
+</container>
