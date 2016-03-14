@@ -1,7 +1,7 @@
-Kit\GalleriesBundle\Entity\GalleryImage:
+GalleriesBundle\Entity\GalleryImage:
     type: entity
     table: gelleries_gallery_image
-    repositoryClass: Kit\GalleriesBundle\Entity\GalleryImageRepository
+    repositoryClass: GalleriesBundle\Entity\GalleryImageRepository
     manyToOne:
         gallery:
             targetEntity: Gallery

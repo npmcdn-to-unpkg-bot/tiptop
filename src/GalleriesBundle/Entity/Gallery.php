@@ -3,12 +3,12 @@
 namespace GalleriesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-//use Kit\SystemBundle\Entity\Entity as Entity;
+use AppBundle\Entity\Entity as Entity;
 
 /**
  * Gallery
  */
-class Gallery //extends Entity
+class Gallery extends Entity
 {
     /**
      * @var integer

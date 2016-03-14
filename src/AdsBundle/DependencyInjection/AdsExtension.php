@@ -1,13 +1,13 @@
 <?php
 
-namespace Kit\AdsBundle\DependencyInjection;
+namespace AdsBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
 
-class KitAdsExtension extends Extension
+class AdsExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -17,6 +17,6 @@ class KitAdsExtension extends Extension
 
     public function getAlias()
     {
-        return 'kit_ads';
+        return 'ads';
     }
 }

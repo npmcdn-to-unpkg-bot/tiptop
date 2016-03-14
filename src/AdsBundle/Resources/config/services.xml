@@ -6,10 +6,10 @@
     
     <services>
         
-        <service id="kernel.listener.ads_admin_menu" class="Kit\AdsBundle\EventListener\AdminMenuListener">
-            <tag name="kernel.event_listener" event="system.admin_menu" method="onAdminMenuBuild" />
+        <service id="kernel.listener.ads_admin_menu" class="AdsBundle\EventListener\AdminMenuListener">
+            <tag name="kernel.event_listener" event="app.admin_menu" method="onAdminMenuBuild" />
         </service>
-        
+
     </services>
     
 </container>

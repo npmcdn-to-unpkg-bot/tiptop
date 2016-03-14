@@ -15,7 +15,6 @@ class IndexAdminController extends AdminController
     public function menuAction($routeName)
     {
         $eventDispatcher = $this->get('event_dispatcher');
-
         $menuEvent = new MenuEvent();
         $eventDispatcher->dispatch('app.admin_menu', $menuEvent);
     

@@ -1,10 +1,16 @@
-{% for item in pages %}
-    <a href="{{ path('_system_page', {'slug': item.slug}) }}" alt="{{ item.nameInMenu }}">
-        <button type="button" class="btn btn-default btn-big">
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        </button>
-    </a>
-{% endfor %}
+<div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+        {% for item in pages %}
+            <li {% if routeName == item.slug %}class="active"{% endif %}>
+                <a href="{{ path('_system_page', {'slug': item.slug}) }}" alt="{{ item.nameInMenu }}">
+                    {{ item.nameInMenu }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{#
 
 <div class="box home_box1 color1">
     <a href="javascript::void();">
@@ -40,4 +46,4 @@
     <a href="{{ path('_system_page', {'slug': 'contacts'}) }}">
         <img width="152px" src="{{ asset('bundles/system/images/e-mail_icon.png') }}" alt="Контакты" />
     </a>
-</div>
+</div>#}

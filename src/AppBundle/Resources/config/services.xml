@@ -18,6 +18,14 @@
         <service id="kernel.listener.app_admin_menu" class="AppBundle\EventListener\AdminMenuListener">
             <tag name="kernel.event_listener" event="app.admin_menu" method="onAdminMenuBuild" />
         </service>
+
+        <service id="kernel.listener.app_menu" class="AppBundle\EventListener\MenuListener">
+            <tag name="kernel.event_listener" event="app.menu" method="onMenuBuild" />
+        </service>
+                        
+        <service id="kernel.listener.app_right_menu" class="AppBundle\EventListener\RightMenuListener">
+            <tag name="kernel.event_listener" event="app.right_menu" method="onRightMenuBuild" />
+        </service>
         
 <!--        <service id="acme_demo_bundle.image_type_extension" class="Kit\SystemBundle\Form\Extension\ImageTypeExtension">
             <tag name="form.type_extension" alias="file" />

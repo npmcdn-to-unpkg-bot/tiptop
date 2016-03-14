@@ -1,0 +1,31 @@
+<div id="home_gallery" class="box no_mr">
+    {#% for image in images %}
+        <a href="{{ image.getWebPath }}" class="fancybox{% if loop.index%3 == 0 %} no_mr{% endif %}">
+            <img src="{{ image.getWebPath | imagine_filter('my_thumb', {"thumbnail": {"size": [152, 152] }}) }}"
+                    rel="lightbox[gallery]"/>
+        </a>
+    {% endfor %#}
+</div>
+
+<div class="btn-group" role="group" aria-label="...">
+    {% for item in items %}
+          <button type="button" class="btn btn-default">
+              <a href="{{ path(item.path) }}" class="list-group-item{% if routeName == item.path %} active{% endif %}">{{ item.name }}</a>
+          </button>
+    {% endfor %}
+</div>
+
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                </div>
+            </div><!--/.sidebar-offcanvas-->

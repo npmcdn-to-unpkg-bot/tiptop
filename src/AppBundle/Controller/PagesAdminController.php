@@ -1,20 +1,20 @@
 <?php
 
-namespace Kit\SystemBundle\Controller;
+namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Kit\SystemBundle\Form\PageType;
+use AppBundle\Form\PageType;
 
 class PagesAdminController extends Controller
 {
     public function ListAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository('KitSystemBundle:Page')
+        $pages = $em->getRepository('AppBundle:Page')
                        ->findAll();
         
-        return $this->render('KitSystemBundle:PagesAdmin:list.html.twig', array(
+        return $this->render('AppBundle:PagesAdmin:list.html.twig', array(
             'pages' => $pages
         ));
     }

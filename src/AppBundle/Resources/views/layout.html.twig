@@ -22,28 +22,12 @@
         {% endfor %}
         <div class="row row-offcanvas row-offcanvas-right">
 
-            {#{ render(controller('AppBundle:Default:Menu')) }#}
-
             {% block content %}{% endblock %}
 
             {% if  disableRightMenu is not defined or disableRightMenu != true %}
-                {#{ render(controller('AppBundle:Default:RightMenu')) }#}
+                {{ render(controller('AppBundle:Default:RightMenu', { 'routeName' : app.request.attributes.get('_route') })) }}
             {% endif %}
 
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                    <a href="#" class="list-group-item">Link</a>
-                </div>
-            </div><!--/.sidebar-offcanvas-->
         </div><!--/row-->
         
         <hr>
