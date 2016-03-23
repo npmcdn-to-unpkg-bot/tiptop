@@ -1,0 +1,39 @@
+{% extends "AppBundle::layout-admin.html.twig" %}
+
+{% block title "Администрирование - Страницы" %}
+
+{% block content %}
+
+    <hr/>
+    
+    <button type="button" class="btn btn-default" xmlns="http://www.w3.org/1999/html">
+        <a href="{{ path('_system_admin_pages_add') }}">Добавить</a>
+    </button>
+    
+    <hr/>
+    
+    <ul class="media-list">
+        {% for page in pages %}
+            <li class="media">
+                <div class="media-left">
+                    <a href="{{ path('_system_admin_pages_edit', { id: page.id }) }}">
+                      {% if page.getWebPath() %}
+                       <img class="media-object" src="{#{ page.getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [64, 64] }}) }}" alt="{{ page.title }#}">
+                      {% else %}  
+                        <img class="media-object" src="{{ asset('bundles/app/images/empty.svg') }}" alt="{{ page.title }}">
+                      {% endif %}  
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ page.title }}</h4>
+                    <p>{{ page.description }}</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">Удалить</a>
+                        <a href="{{ path('_system_admin_pages_edit', { id: page.id }) }}" class="btn btn-default" role="button">Редактировать</a>
+                    </p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

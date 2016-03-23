@@ -1,5 +1,7 @@
-<div class="btn-group" role="group" aria-label="...">
+<ul class="nav nav-pills">
     {% for item in items %}
-        <a href="{{ path(item.path) }}" class="list-group-item{% if routeName == item.path %} active{% endif %}">{{ item.name }}</a>
+        <li role="presentation" class="{% if routeName == item.path %}active{% endif %}">
+            <a href="{{ path(item.path) }}">{{ item.name }}</a>
+        </li>
     {% endfor %}
-</div>
+</ul>

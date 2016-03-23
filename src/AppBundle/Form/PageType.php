@@ -24,7 +24,7 @@ class PageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Kit\SystemBundle\Entity\Page'
+            'data_class' => 'AppBundle\Entity\Page'
         ));
     }
 

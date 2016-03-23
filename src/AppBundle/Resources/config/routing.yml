@@ -16,6 +16,21 @@ login_check:
 logout:
     path:   /admin/logout
 
+_security_login:
+    pattern:  /login
+    defaults: { _controller: BlogBundle:Security:login }
+
+_security_check:
+    pattern:  /login_check
+
+_security_logout:
+    pattern:  /logout
+
+admin_home:
+    pattern:  /admin/
+    defaults: { _controller: BlogBundle:Admin:index }
+
+
 _system_admin_index:
     path:  /admin
     defaults: { _controller: AppBundle:IndexAdmin:index }

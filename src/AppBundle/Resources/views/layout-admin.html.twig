@@ -8,36 +8,32 @@
 {% block title 'Администрирование' %}
 
 {% block body %}
-    
-    <div id="templatemo_header">
-        <div id="site_title">
-            <h1>
-                <a href="/admin" title="Администрирование">Администрирование</a>
-            </h1>
-        </div>
+
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div id="site_title">
+                <h1>
+                    <a href="/admin" title="Администрирование">Администрирование</a>
+                </h1>
+            </div>
+            {{ render(controller('AppBundle:IndexAdmin:Menu', { 'routeName' : app.request.attributes.get('_route') } )) }}
+        </div><!--/row-->
         
-        {{ render(controller('AppBundle:IndexAdmin:Menu', { 'routeName' : app.request.attributes.get('_route') } )) }}
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-message">
+                <em>Notice</em>: {{ flashMessage }}
+            </div>
+        {% endfor %}
         
-    </div>
+        <div class="row row-offcanvas row-offcanvas-right">
+            {% block content %}{% endblock %}
+        </div><!--/row-->
+        
+        <hr>
 
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-message">
-            <em>Notice</em>: {{ flashMessage }}
-        </div>
-    {% endfor %}
-
-    <div id="templatemo_main">
-        <div id="content"> 
-            <div id="home" class="section">
+        <footer>
+             Copyright © 2072 <a href="#">TipTop</a> | Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+        </footer>
+    </div><!--/.container-->
                 
-                {% block content %}{% endblock %}
-                
-            </div> <!-- END of home -->
-        </div>
-    </div>
-
-    <div id="templatemo_footer">
-        Copyright © 2072 <a href="#">Your Company Name</a> | Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
-    </div>
-
 {% endblock %}

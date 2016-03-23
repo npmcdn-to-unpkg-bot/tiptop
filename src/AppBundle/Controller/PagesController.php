@@ -1,10 +1,10 @@
 <?php
 
-namespace Kit\SystemBundle\Controller;
+namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Kit\SystemBundle\Entity\PageRepository;
+use AppBundle\Entity\PageRepository;
 
 class PagesController extends Controller
 {
@@ -13,10 +13,10 @@ class PagesController extends Controller
         $slug = $request->get('slug');
         
         $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('KitSystemBundle:Page')
+        $page = $em->getRepository('AppBundle:Page')
                        ->findOneBySlug($slug);
         
-        return $this->render('KitSystemBundle:Pages:page.html.twig',array(
+        return $this->render('AppBundle:Pages:page.html.twig',array(
             'page' => $page
         ));
     }

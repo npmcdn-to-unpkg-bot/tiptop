@@ -44,10 +44,10 @@ class PagesAdminController extends Controller
     public function EditAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('KitSystemBundle:Page')
+        $page = $em->getRepository('AppBundle:Page')
                        ->findOneById($id);
         
-        $form = $this->createForm(new PageType() );
+        $form = $this->createFormBuilder(new PageType() )->getForm();
         
         $form->setData($page);
         
@@ -63,7 +63,7 @@ class PagesAdminController extends Controller
             }
         }
         
-        return $this->render('KitSystemBundle:PagesAdmin:edit.html.twig', array(
+        return $this->render('AppBundle:PagesAdmin:edit.html.twig', array(
                     'page' => $page,
                     'form' => $form->createView()
         ));

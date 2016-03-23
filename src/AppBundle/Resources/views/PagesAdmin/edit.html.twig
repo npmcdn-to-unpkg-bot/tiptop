@@ -1,4 +1,4 @@
-{% extends "KitSystemBundle::layout-admin.html.twig" %}
+{% extends "AppBundle::layout-admin.html.twig" %}
 
 {% block title "Symfony - Demos" %}
     
@@ -19,18 +19,21 @@
     
 {% block content %}
     
-    <button type="button" class="btn btn-default">
-        <a href="{{ path('_system_admin_pages') }}">Назад</a>
-    </button>
-    <br/><br/>
-    <form class="kit__block" action="{{ path('_system_admin_pages_edit', {id:page.id}) }}" method="post" {{ form_enctype(form) }}>
+    <hr/>
+     
+    <a class="btn btn-primary" href="{{ path('_system_admin_pages') }}">Назад</a>
+    
+    <hr/>
+    
+   {# <form class="kit__block" action="{{ path('_system_admin_pages_edit', {id:page.id}) }}" method="post" {{ form_enctype(form) }}> #}
+   {{form_start(form)}}
         
-        {% form_theme form 'KitSystemBundle:Form:fields.html.twig' %}
+        {% form_theme form 'AppBundle:Form:fields.html.twig' %}
         
         {{ form_widget(form) }}
         
         <br/>
         <input type="submit" />
-    </form>
+    {{form_end(form)}}
 
 {% endblock %}

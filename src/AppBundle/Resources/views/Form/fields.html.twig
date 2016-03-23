@@ -13,11 +13,11 @@
         
     {% set runtimeConfig = {"thumbnail": {"size": [64, 64] }} %}
 
-    {% if image_path is defined and image_path is not null %}
+    {#% if image_path is defined and image_path is not null %}
         <img src="{{ image_path | imagine_filter('my_thumb', runtimeConfig) }}" />
     {% elseif data is defined and data is not null %}
         <img src="{{ data | imagine_filter('my_thumb', runtimeConfig) }}" />
-    {% endif %}
+    {% endif %#}
 
     {% endspaceless %}
 {% endblock %}

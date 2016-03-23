@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 class SecurityController extends Controller
 {
     public function loginAction(Request $request)
-    { 
+    {
         $authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
@@ -18,6 +18,10 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        if ($request->isMethod('POST')) {
+            var_dump("123");
+        }
+        
         return $this->render(
             'AppBundle:Security:login.html.twig',
             array(
