@@ -5,10 +5,10 @@
  * Date: 10/14/15
  * Time: 23:42
  */
-namespace Kit\AdsBundle\Controller;
+namespace AdsBundle\Controller;
 
-use Kit\SystemBundle\Controller\BaseController;
-use Kit\AdsBundle\Entity\PageRepository;
+use AppBundle\Controller\BaseController;
+use AdsBundle\Entity\PageRepository;
 
 class IndexController extends BaseController
 {

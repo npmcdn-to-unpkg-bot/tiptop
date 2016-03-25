@@ -1,4 +1,4 @@
-<ul class="nav nav-pills">
+<ul class="nav nav-tabs">    
     {% for item in items %}
         <li role="presentation" class="{% if routeName == item.path %}active{% endif %}">
             <a href="{{ path(item.path) }}">{{ item.name }}</a>

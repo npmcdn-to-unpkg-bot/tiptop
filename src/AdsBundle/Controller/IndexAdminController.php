@@ -1,27 +1,28 @@
 <?php
 
-namespace Kit\AdsBundle\Controller;
+namespace AdsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Forms;
-use Kit\AdsBundle\Entity\Ad;
-use Kit\AdsBundle\Form\AdType;
+use AdsBundle\Entity\Ad;
+use AdsBundle\Form\AdType;
+use AppBundle\Controller\AdminController;
 
 /**
  * Description of AdAdminController
  *
  * @author anton
  */
-class IndexAdminController extends Controller {
+class IndexAdminController extends AdminController {
     //put your code here
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $items = $em->getRepository('KitAdsBundle:Ad')
+        $items = $em->getRepository('AdsBundle:Ad')
                        ->findAll();
 
-        return $this->render('KitAdsBundle:IndexAdmin:Index.html.twig', array(
+        return $this->render('AdsBundle:IndexAdmin:Index.html.twig', array(
             'ads' => $items
         ));
     }
@@ -43,7 +44,7 @@ class IndexAdminController extends Controller {
             }
         }
         
-        return $this->render('KitAdsBundle:IndexAdmin:Add.html.twig', array(
+        return $this->render('AdsBundle:IndexAdmin:Add.html.twig', array(
                     'form' => $form->createView()
         ));
     }
@@ -51,7 +52,7 @@ class IndexAdminController extends Controller {
     public function EditAction($id, Request $request)
     {        
         $em = $this->getDoctrine()->getManager();
-        $item = $em->getRepository('KitAdsBundle:Ad')
+        $item = $em->getRepository('AdsBundle:Ad')
                        ->findOneById($id);
         
         $form = $this->createForm(new AdType() );
@@ -69,7 +70,7 @@ class IndexAdminController extends Controller {
             }
         }
         
-        return $this->render('KitSystemBundle:PagesAdmin:edit.html.twig', array(
+        return $this->render('AppBundle:PagesAdmin:edit.html.twig', array(
             'form' => $form->createView(),
             'page' => $item
         ));

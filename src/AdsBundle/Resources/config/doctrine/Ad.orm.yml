@@ -1,7 +1,7 @@
-Kit\AdsBundle\Entity\Ad:
+AdsBundle\Entity\Ad:
     type: entity
     table: ads_ads
-    repositoryClass: Kit\AdsBundle\Entity\AdRepository
+    repositoryClass: AdsBundle\Entity\AdRepository
     id:
         id:
             type: integer

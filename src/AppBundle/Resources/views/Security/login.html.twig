@@ -9,27 +9,35 @@
 {% block content %}
     
     <div class="container">
-
-        {% if error %}
-            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        <form action="{{ path('_security_check') }}" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="_password" />
-
-            {#
-                If you want to control the URL the user
-                is redirected to on success (more details below)
-                <input type="hidden" name="_target_path" value="/account" />
-            #}
-
-            <button type="submit">login</button>
-        </form>
-
+        
+        <center>
+            <div class="panel panel-default" style="width:30%">
+                <div class="panel-body">
+                    <div class="input-group">
+                        <h4>"TipTop" Admin Area</h4>
+                    </div>
+                    
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    
+                    <form action="{{ path('_security_check') }}" method="post">
+                        <div class="input-group margin_top">
+                            <span class="input-group-addon" id="basic-addon1">Username</span>
+                            <input id="username" name="_username" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="{{ last_username }}"/>
+                        </div>
+                        
+                        <div class="input-group margin_top">
+                            <span class="input-group-addon" id="basic-addon1">Password</span>
+                            <input id="password" name="_password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/>
+                        </div>
+                        <button class="btn btn-default margin_top" type="submit">
+                            Войти
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </center>
     </div>
     
 {% endblock %}

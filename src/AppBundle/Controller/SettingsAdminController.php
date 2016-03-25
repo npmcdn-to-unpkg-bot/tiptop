@@ -14,7 +14,7 @@ class SettingsAdminController extends AdminController {
         $settings = $em->getRepository('AppBundle:Setting')
                        ->findBy( array( 'section' => 'main' ) );
         
-        $form = $this->createForm(new SettingType($settings) );
+        $form = $this->createFormBuilder(new SettingType($settings) )->getForm();
 
         if ($request->isMethod('POST'))
         {

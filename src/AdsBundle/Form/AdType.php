@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\AdsBundle\Form;
+namespace AdsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +20,7 @@ class AdType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Kit\AdsBundle\Entity\Ad'
+            'data_class' => 'AdsBundle\Entity\Ad'
         ));
     }
 
