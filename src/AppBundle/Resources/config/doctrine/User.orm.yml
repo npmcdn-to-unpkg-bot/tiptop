@@ -18,13 +18,14 @@ Kit\SystemBundle\Entity\User:
     fields:
         username:
             type: string
-            length: 255
+            length: 25
+            unique: true
         password:
             type: string
-            length: 255
+            length: 64
         email:
             type: string
-            length: 255
+            length: 60
         isActive:
             type: boolean
         createdAt:

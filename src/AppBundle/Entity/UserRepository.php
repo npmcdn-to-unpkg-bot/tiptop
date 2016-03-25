@@ -18,7 +18,7 @@ use Doctrine\ORM\NoResultException;
 class UserRepository extends EntityRepository implements UserProviderInterface
 {
     public function loadUserByUsername($username)
-    {
+    {exit;
         $q = $this
             ->createQueryBuilder('u')
             ->select('u')
