@@ -27,13 +27,11 @@
     
    {# <form class="kit__block" action="{{ path('_system_admin_pages_edit', {id:page.id}) }}" method="post" {{ form_enctype(form) }}> #}
    {{form_start(form)}}
+   {{ form_widget(form) }}    
+{#        {% form_theme form 'AppBundle:Form:fields.html.twig' %}#}
         
-        {% form_theme form 'AppBundle:Form:fields.html.twig' %}
+{#        {{ form_widget(form) }}#}
         
-        {{ form_widget(form) }}
-        
-        <br/>
-        <input type="submit" />
     {{form_end(form)}}
 
 {% endblock %}

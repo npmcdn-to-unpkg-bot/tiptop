@@ -148,7 +148,7 @@ class Page
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../web/uploads/pages';
+        return __DIR__.'/../../../web/uploads/pages';
     }
     
     /**
@@ -331,5 +331,4 @@ class Page
     {
         return '/uploads/pages/' . $this->getImage();
     }
-
 }

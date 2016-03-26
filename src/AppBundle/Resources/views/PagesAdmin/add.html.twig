@@ -1,4 +1,4 @@
-{% extends "KitSystemBundle::layout-admin.html.twig" %}
+{% extends "AppBundle::layout-admin.html.twig" %}
 
 {% block head %}
     <script src="{{ asset('bundles/system/js/tinymce/tinymce.min.js') }}"></script>
@@ -20,16 +20,19 @@
     <button type="button" class="btn btn-default">
         <a href="{{ path('_system_admin_pages') }}">Назад</a>
     </button>
-    <br/>
-    <br/>
-    <form class="kit__block"  action="{{ path('_system_admin_pages_add') }}" method="post" {{ form_enctype(form) }}>
+
+    <hr/>
+    
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    
+{#    <form class="kit__block"  action="{{ path('_system_admin_pages_add') }}" method="post" {{ form_enctype(form) }}>
         
-        {% form_theme form 'KitSystemBundle:Form:fields.html.twig' %}
+        {% form_theme form 'AppBundle:Form:fields.html.twig' %}
         
         {{ form_widget(form) }}
-        
-        <br/>
-        <input type="submit" />
-    </form>
+
+    </form>#}
     
 {% endblock %}

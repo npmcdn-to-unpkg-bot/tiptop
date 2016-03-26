@@ -4,11 +4,14 @@
 
 {% block content %}
     
+    <br/>
+    
     <button type="button" class="btn btn-default">
         <a href="{{ path('_ads_admin_ad_add') }}">Добавить</a>
     </button>
-    <br/>
-    <br/>
+    
+    <hr/>
+    
     <div class="kit__block">
         {% for item in ads %}
             <div class="media">
@@ -20,6 +23,10 @@
               <div class="media-body">
                 <h4 class="media-heading"><a href="{{ path('_ads_admin_ad_edit', { id: item.id }) }}">{{ item.title }}</a></h4>
                 {{ item.body }}
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">Удалить</a>
+                    <a href="{{ path('_ads_admin_ad_edit', { id: item.id }) }}" class="btn btn-default" role="button">Редактировать</a>
+                </p>
               </div>
             </div>
         {% endfor %}

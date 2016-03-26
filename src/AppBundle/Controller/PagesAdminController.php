@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\PageType;
+use AppBundle\Entity\Page;
 
 class PagesAdminController extends Controller
 {
@@ -20,24 +21,24 @@ class PagesAdminController extends Controller
     }
 
     public function AddAction(Request $request)
-    {        
-        $form = $this->createForm(new PageType() );
+    {
+        $page = new Page();
+        $form = $this->createForm(PageType::class, $page);
+            
+        $form->handleRequest($request);
         
-        if ($request->isMethod('POST'))
+        if ($form->isSubmitted() && $form->isValid())
         {
-            $form->bind($request);
-            if ($form->isValid())
-            {
-                $em = $this->getDoctrine()->getManager();
-                $page = $form->getData();
-                $em->persist($page);
-                $em->flush();
-                return $this->redirect($this->generateUrl('_system_admin_pages'));
-            }
+            $em = $this->getDoctrine()->getManager();
+            $page = $form->getData();
+            $em->persist($page);
+            $em->flush();
+
+            return $this->redirectToRoute('_system_admin_pages');
         }
         
-        return $this->render('KitSystemBundle:PagesAdmin:add.html.twig', array(
-                    'form' => $form->createView()
+        return $this->render('AppBundle:PagesAdmin:add.html.twig', array(
+            'form' => $form->createView()
         ));
     }
 
@@ -47,20 +48,19 @@ class PagesAdminController extends Controller
         $page = $em->getRepository('AppBundle:Page')
                        ->findOneById($id);
         
-        $form = $this->createFormBuilder(new PageType() )->getForm();
+        $form = $this->createForm(PageType::class, $page);
         
-        $form->setData($page);
+ //       $form->setData($page);
         
-        if ($request->isMethod('POST'))
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
         {
-            $form->bind($request);
-            if ($form->isValid())
-            {
-                $page = $form->getData();
-                $em->persist($page);
-                $em->flush();
-                return $this->redirect($this->generateUrl('_system_admin_pages'));
-            }
+            $page = $form->getData();
+            $em->persist($page);
+            $em->flush();
+            
+            return $this->redirectToRoute('_system_admin_pages');
         }
         
         return $this->render('AppBundle:PagesAdmin:edit.html.twig', array(

@@ -6,9 +6,8 @@
 
     <hr/>
     
-    <button type="button" class="btn btn-default" xmlns="http://www.w3.org/1999/html">
-        <a href="{{ path('_system_admin_pages_add') }}">Добавить</a>
-    </button>
+        <a class="btn btn-default" href="{{ path('_system_admin_pages_add') }}">Добавить</a>
+    
     
     <hr/>
     
@@ -18,7 +17,7 @@
                 <div class="media-left">
                     <a href="{{ path('_system_admin_pages_edit', { id: page.id }) }}">
                       {% if page.getWebPath() %}
-                       <img class="media-object" src="{#{ page.getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [64, 64] }}) }}" alt="{{ page.title }#}">
+                       <img class="media-object" width="64px" src="{{page.getWebPath()}}{#{ page.getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [64, 64] }}) }}" alt="{{ page.title }#}">
                       {% else %}  
                         <img class="media-object" src="{{ asset('bundles/app/images/empty.svg') }}" alt="{{ page.title }}">
                       {% endif %}  
