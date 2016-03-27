@@ -49,13 +49,11 @@ class PagesAdminController extends Controller
                        ->findOneById($id);
         
         $form = $this->createForm(PageType::class, $page);
-        
- //       $form->setData($page);
-        
+
         $form->handleRequest($request);
-        
+          
         if ($form->isSubmitted() && $form->isValid())
-        {
+        {   
             $page = $form->getData();
             $em->persist($page);
             $em->flush();

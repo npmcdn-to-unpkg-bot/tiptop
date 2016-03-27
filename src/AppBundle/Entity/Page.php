@@ -134,12 +134,14 @@ class Page
      */
     public function setImage(UploadedFile $file = null)
     {
-        
-        $filename = sha1(uniqid(mt_rand(), true));
-        $filename = $filename.'.'.$file->guessExtension();
-        $file->move($this->getUploadRootDir(), $filename);
-        
-        $this->image = $filename;
+        if (null !== $file)
+        {
+            $filename = sha1(uniqid(mt_rand(), true));
+            $filename = $filename.'.'.$file->guessExtension();
+            $file->move($this->getUploadRootDir(), $filename);
+
+            $this->image = $filename;
+        }
 
         return $this;
     }

@@ -15,6 +15,7 @@ AppBundle\Entity\Page:
         title:
             type: string
             length: 255
+            NotBlank: ~
         image:
             type: string
             length: 255
