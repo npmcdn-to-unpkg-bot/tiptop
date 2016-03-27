@@ -33,7 +33,16 @@ class PagesAdminController extends Controller
             $page = $form->getData();
             $em->persist($page);
             $em->flush();
-
+            
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans('page.added.success', array(
+                        '%name%' => $page->getTitle()
+                    ),
+                    'admin'
+                )
+            );
+        
             return $this->redirectToRoute('_system_admin_pages');
         }
         
@@ -58,6 +67,15 @@ class PagesAdminController extends Controller
             $em->persist($page);
             $em->flush();
             
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans('page.edited.success', array(
+                        '%name%' => $page->getTitle()
+                    ),
+                    'admin'
+                )
+            );
+            
             return $this->redirectToRoute('_system_admin_pages');
         }
         
@@ -66,5 +84,25 @@ class PagesAdminController extends Controller
                     'form' => $form->createView()
         ));
     }
-
+    
+    public function deleteAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('AppBundle:Page')
+                       ->findOneById($id);
+        
+        $em->remove($page);
+        $em->flush();
+        
+        $this->addFlash(
+            'success',
+            $this->get('translator')->trans('page.deleted.success', array(
+                    '%name%' => $page->getTitle()
+                ),
+                'admin'
+            )
+        );
+        
+        return $this->redirectToRoute('_system_admin_pages');
+    }
 }

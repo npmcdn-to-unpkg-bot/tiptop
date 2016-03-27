@@ -1,4 +1,4 @@
 AppBundle\Entity\Page:
     properties:
         title:
-            - NotBlank: ~
+            - NotBlank: { message: 'page.title.not_blank' }

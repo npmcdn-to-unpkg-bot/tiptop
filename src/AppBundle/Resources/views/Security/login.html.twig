@@ -3,7 +3,7 @@
 {% block title "Login" %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/system/css/login.css') }}">   
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/login.css') }}">   
 {% endblock %}
 
 {% block content %}
@@ -21,17 +21,17 @@
                         <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
                     
-                    <form action="{{ path('_security_check') }}" method="post">
-                        <div class="input-group margin_top">
+                    <form class="form-admin-login" action="{{ path('_security_check') }}" method="post">
+                        <div class="input-group margin-top">
                             <span class="input-group-addon" id="basic-addon1">Username</span>
                             <input id="username" name="_username" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="{{ last_username }}"/>
                         </div>
                         
-                        <div class="input-group margin_top">
+                        <div class="input-group margin-top">
                             <span class="input-group-addon" id="basic-addon1">Password</span>
                             <input id="password" name="_password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/>
                         </div>
-                        <button class="btn btn-default margin_top" type="submit">
+                        <button class="btn btn-default margin-top" type="submit">
                             Войти
                         </button>
                     </form>

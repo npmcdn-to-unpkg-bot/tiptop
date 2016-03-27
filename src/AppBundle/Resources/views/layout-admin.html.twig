@@ -17,23 +17,38 @@
                 </h1>
             </div>
             {{ render(controller('AppBundle:IndexAdmin:Menu', { 'routeName' : app.request.attributes.get('_route') } )) }}
-        </div><!--/row-->
+        </div>
         
-        {% for flashMessage in app.session.flashbag.get('notice') %}
-            <div class="flash-message">
-                <em>Notice</em>: {{ flashMessage }}
+        {% for flash_message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success margin-top" role="alert">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('info') %}
+            <div class="alert alert-info margin-top" role="alert">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('warning') %}
+            <div class="alert alert-warning margin-top" role="alert">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            <div class="alert alert-danger margin-top" role="alert">
+                {{ flash_message }}
             </div>
         {% endfor %}
         
         <div class="row row-offcanvas row-offcanvas-right">
             {% block content %}{% endblock %}
-        </div><!--/row-->
+        </div>
         
         <hr>
 
         <footer>
              Copyright © 2072 <a href="#">TipTop</a> | Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
         </footer>
-    </div><!--/.container-->
+    </div>
                 
 {% endblock %}

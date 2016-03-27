@@ -54,3 +54,7 @@ _system_admin_pages_add:
 _system_admin_pages_edit:
     path: admin/pages/{id}/edit
     defaults: { _controller: AppBundle:PagesAdmin:Edit }
+
+app_admin_pages_delete:
+    path: admin/pages/{id}/delete
+    defaults: { _controller: AppBundle:PagesAdmin:Delete }

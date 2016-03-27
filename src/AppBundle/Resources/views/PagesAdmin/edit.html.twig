@@ -19,21 +19,15 @@
     
 {% block content %}
      
-    <a class="btn btn-default margin_top" href="{{ path('_system_admin_pages') }}">Назад</a>
+    <a class="btn btn-default margin-top" href="{{ path('_system_admin_pages') }}">Назад</a>
     
     <hr/>
     
-   {# <form class="kit__block" action="{{ path('_system_admin_pages_edit', {id:page.id}) }}" method="post" {{ form_enctype(form) }}> #}
     {% form_theme form 'bootstrap_3_layout.html.twig' %}
     {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-
     {{form_start(form)}}
-    {{ form_widget(form) }}    
-{#        {% form_theme form 'AppBundle:Form:fields.html.twig' %}#}
-        
-{#        {{ form_widget(form) }}#}
-        
+    {{form_widget(form)}}
     {{form_end(form)}}
 
 {% endblock %}

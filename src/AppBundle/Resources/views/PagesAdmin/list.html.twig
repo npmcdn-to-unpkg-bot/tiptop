@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <a class="btn btn-default margin_top" href="{{ path('_system_admin_pages_add') }}">Добавить</a>
+    <a class="btn btn-default margin-top" href="{{ path('_system_admin_pages_add') }}">Добавить</a>
         
     <hr/>
     
@@ -24,7 +24,7 @@
                     <h4 class="media-heading">{{ page.title }}</h4>
                     <p>{{ page.description }}</p>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">Удалить</a>
+                        <a href="{{ path('app_admin_pages_delete', { id: page.id })}}" class="btn btn-primary" role="button">Удалить</a>
                         <a href="{{ path('_system_admin_pages_edit', { id: page.id }) }}" class="btn btn-default" role="button">Редактировать</a>
                     </p>
                 </div>
