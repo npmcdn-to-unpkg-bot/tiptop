@@ -10,7 +10,7 @@
 {% block body %}
 
     <div class="container">
-        <div class="row row-offcanvas row-offcanvas-right">
+        <div class="row row-offcanvas">
             <div id="site_title">
                 <h1>
                     <a href="/admin" title="Администрирование">Администрирование</a>
@@ -40,15 +40,17 @@
             </div>
         {% endfor %}
         
-        <div class="row row-offcanvas row-offcanvas-right">
+        <div class="row row-offcanvas row-admin-left">
             {% block content %}{% endblock %}
+            {% block right_menu %}{% endblock %}
         </div>
-        
-        <hr>
 
-        <footer>
-             Copyright © 2072 <a href="#">TipTop</a> | Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
-        </footer>
+        <hr>
+        <div class="row row-offcanvas">
+            <footer>
+                 Copyright © 2072 <a href="#">TipTop</a> | Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+            </footer>
+        </div>
     </div>
                 
 {% endblock %}

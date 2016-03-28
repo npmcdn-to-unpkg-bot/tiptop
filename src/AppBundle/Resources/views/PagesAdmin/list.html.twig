@@ -1,14 +1,16 @@
 {% extends "AppBundle::layout-admin.html.twig" %}
 
 {% block title "Администрирование - Страницы" %}
-
+    
+{% block right_menu %}
+    <ul class="row-admin-right">
+        <li><a class="btn btn-default margin-top" href="{{ path('_system_admin_pages_add') }}">Добавить</a></li>
+    </ul>
+{% endblock %}
+    
 {% block content %}
 
-    <a class="btn btn-default margin-top" href="{{ path('_system_admin_pages_add') }}">Добавить</a>
-        
-    <hr/>
-    
-    <ul class="media-list">
+    <ul class="media-list row-admin-left">
         {% for page in pages %}
             <li class="media">
                 <div class="media-left">
@@ -31,5 +33,5 @@
             </li>
         {% endfor %}
     </ul>
-
+  
 {% endblock %}
