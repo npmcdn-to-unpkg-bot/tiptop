@@ -6,36 +6,50 @@ use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Entity as Entity;
 
 /**
- * Article
+ * Class Article
+ * @package ArticlesBundle\Entity
+ * 
+ * @ORM\Entity
+ * @ORM\Table(name="articles_news")
+ * 
  */
 class Article extends Entity
 {
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue()
+     * 
      * @var integer
      */
     private $id;
     
     /**
+     * @ORM\Column(type="string", length=255)
      * @var string
      */
     private $title;
 
     /**
+     * @ORM\Column(type="text")
      * @var string
      */
     private $body;
 
     /**
+     * @ORM\Column(type="datetime")
      * @var \DateTime
      */
     private $createdAt;
 
     /**
+     * @ORM\Column(type="datetime")
      * @var \DateTime
      */
     private $updatedAt;
 
     /**
+     * @ORM\Column(type="datetime")
      * @var \DateTime
      */
     private $deletedAt;

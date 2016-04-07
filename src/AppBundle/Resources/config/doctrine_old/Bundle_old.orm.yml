@@ -1,0 +1,16 @@
+AppBundle\Entity\Bundle:
+    type: entity
+    table: app_bundles
+    id:
+        id:
+            type: integer
+    fields:
+        name:
+            type: string
+            length: 40
+        isActive:
+            type: boolean
+        isSystem:
+            type: boolean
+        orderBy:
+            type: integer

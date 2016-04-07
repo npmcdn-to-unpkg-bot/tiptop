@@ -22,7 +22,7 @@
     </button>
     <br/>
     <br/>
-    <form class="kit__block"  action="{{ path('_articles_admin_add') }}" method="post" {{ form_enctype(form) }}>
+    <form class="kit__block"  action="{{ path('_articles_admin_add') }}" method="post" {#{{ form_enctype(form) }}#}>
         
         {% form_theme form 'KitSystemBundle:Form:fields.html.twig' %}
         
