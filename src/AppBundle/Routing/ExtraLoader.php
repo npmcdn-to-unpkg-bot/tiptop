@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityManager;
 
 class ExtraLoader extends Loader {
     
+    private $loaded = false;
+    
     protected $em;
     
     public function __construct(\Doctrine\ORM\EntityManager $em)
@@ -18,33 +20,37 @@ class ExtraLoader extends Loader {
     
     public function load($resource, $type = null)
     {
+        if (true === $this->loaded) {
+            throw new \RuntimeException('Do not add the "extra" loader twice');
+        }
+
         $collection = new RouteCollection();
-echo '123';
-//        $activeBundles = $this->em->getRepository('AppBundle:Bundle')
-//                            ->findByIsActive(1);
-//
-//        foreach ($activeBundles as $bundleName)
-//        {
+//echo '123';
+        $activeBundles = $this->em->getRepository('AppBundle:Bundle')
+                            ->findByIsActive(1);
+
+        foreach ($activeBundles as $bundleName)
+        {
 //            echo $bundleName->getName();
-//            $resource = '@' . $bundleName->getName() . '/Resources/config/routing.yml';
+            $resource = '@' . $bundleName->getName() . '/Resources/config/routing.yml';
 //            echo $resource . PHP_EOL;
-//            $type = 'yaml';
-//            $importedRoutes = $this->import($resource, $type);
-//            $collection->addCollection($importedRoutes);
-//        }
+            $type = 'yaml';
+            $importedRoutes = $this->import($resource, $type);
+            $collection->addCollection($importedRoutes);
+        }
 //        var_dump("finish");
         
         
-        $resource = '@AppBundle/Resources/config/routing.yml';
-        $type = 'yaml';
-        $importedRoutes = $this->import($resource, $type);
-        $collection->addCollection($importedRoutes);
-        
-        $resource = '@ArticlesBundle/Resources/config/routing.yml';
-        $type = 'yaml';
-        $importedRoutes = $this->import($resource, $type);
-        $collection->addCollection($importedRoutes);
-        
+//        $resource = '@AppBundle/Resources/config/routing.yml';
+//        $type = 'yaml';
+//        $importedRoutes = $this->import($resource, $type);
+//        $collection->addCollection($importedRoutes);
+//        
+//        $resource = '@ArticlesBundle/Resources/config/routing.yml';
+//        $type = 'yaml';
+//        $importedRoutes = $this->import($resource, $type);
+//        $collection->addCollection($importedRoutes);
+//        
 //        $resource = '@GalleriesBundle/Resources/config/routing.yml';
 //        $type = 'yaml';
 //        $importedRoutes = $this->import($resource, $type);
@@ -59,8 +65,10 @@ echo '123';
 //        $type = 'yaml';
 //        $importedRoutes = $this->import($resource, $type);
 //        $collection->addCollection($importedRoutes);
-        
+
         $collection->addCollection($importedRoutes);
+    
+
         $routeSettings = $this->em->getRepository('AppBundle:Setting')
                             ->find('system_mainpage_route');
         
@@ -68,6 +76,7 @@ echo '123';
                             ->find('system_mainpage_route_params');
         
         $options = $routeSettingsParams->getValue();
+
         $options = json_decode($options);
         $options = get_object_vars($options);
 
@@ -83,7 +92,7 @@ echo '123';
                 '_controller' => 'ArticlesBundle:Index:index',
             );
         }
-        
+
         $mainroute = new Route('/', $defaults);
         $collection->add('mainpage', $mainroute);
 

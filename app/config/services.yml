@@ -14,3 +14,8 @@ services:
 #        class:     NewsletterManager
 #        calls:
 #            - [setMailer, ['@mailer']]
+    app.routing_loader:
+        class: AppBundle\Routing\ExtraLoader
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: routing.loader }

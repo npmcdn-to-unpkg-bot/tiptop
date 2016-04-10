@@ -2,71 +2,112 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
- * Page
+ * Class Page
+ * @package AppBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table(name="app_page")
  */
 class Page
 {
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue()
+     * 
      * @var integer
      */
     private $id;
 
     /**
+     * @ORM\Column(length=255)
+     * 
      * @var string
      */
     private $slug;
     
     /**
-     * @var string
-     */
-    private $image;
-    
-    /**
+     * @ORM\Column(length=255)
+     * @Assert\NotNull
+     * 
      * @var string
      */
     private $title;
     
     /**
+     * @ORM\Column(length=255)
+     * 
+     * @var string
+     */
+    private $image;
+    
+    /**
+     * @ORM\Column(name="nameInMenu", length=255)
+     * 
      * @var string
      */
     private $nameInMenu;    
 
     /**
-     * @var string
+     * @ORM\Column
+     * 
+     * @var text
      */
     private $body;
 
     /**
+     * @ORM\Column(length=255)
+     * 
      * @var string
      */
     private $keywords;
 
     /**
+     * @ORM\Column(length=255)
+     * 
      * @var string
      */
     private $description;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * 
      * @var \DateTime
      */
-    private $createdAt;
+    private $created;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="change", field={"title", "body"})
+     * 
      * @var \DateTime
      */
-    private $updatedAt;
+    private $updated;
 
     /**
+     * @ORM\Column(type="datetime")
+     * 
      * @var \DateTime
      */
-    private $deletedAt;
+    private $deleted;
+    
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return Page
+     */
+    public function setId($id)
+    {
+        $this->id = $slug;
 
-
-    public function __construct() {
-        $this->setCreatedAt(new \DateTime());
+        return $this;
     }
     
     /**
@@ -80,9 +121,9 @@ class Page
     }
 
     /**
-     * Set title
+     * Set slug
      *
-     * @param string $title
+     * @param string $slug
      * @return Page
      */
     public function setSlug($slug)
@@ -93,7 +134,7 @@ class Page
     }
 
     /**
-     * Get title
+     * Get slug
      *
      * @return string 
      */
@@ -125,7 +166,6 @@ class Page
         return $this->title;
     }
     
-    
     /**
      * Set title
      *
@@ -146,15 +186,8 @@ class Page
         return $this;
     }
     
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded
-        // documents should be saved
-        return __DIR__.'/../../../web/uploads/pages';
-    }
-    
     /**
-     * Get title
+     * Get image
      *
      * @return string 
      */
@@ -164,9 +197,9 @@ class Page
     }
     
     /**
-     * Set title
+     * Set nameInMenu
      *
-     * @param string $title
+     * @param string $nameInMenu
      * @return Page
      */
     public function setNameInMenu($nameInMenu)
@@ -175,9 +208,9 @@ class Page
 
         return $this;
     }
-
+    
     /**
-     * Get title
+     * Get nameInMenu
      *
      * @return string 
      */
@@ -185,7 +218,7 @@ class Page
     {
         return $this->nameInMenu;
     }
-
+    
     /**
      * Set body
      *
@@ -198,7 +231,7 @@ class Page
 
         return $this;
     }
-
+    
     /**
      * Get body
      *
@@ -208,7 +241,7 @@ class Page
     {
         return $this->body;
     }
-
+    
     /**
      * Set keywords
      *
@@ -221,7 +254,7 @@ class Page
 
         return $this;
     }
-
+    
     /**
      * Get keywords
      *
@@ -231,7 +264,7 @@ class Page
     {
         return $this->keywords;
     }
-
+    
     /**
      * Set description
      *
@@ -254,74 +287,86 @@ class Page
     {
         return $this->description;
     }
-
+    
     /**
-     * Set createdAt
+     * Set created
      *
-     * @param \DateTime $createdAt
+     * @param \DateTime $created
      * @return Page
      */
-    public function setCreatedAt($createdAt)
+    public function setCreated($created)
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
 
         return $this;
     }
-
+    
     /**
      * Get createdAt
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
+    public function getCreated()
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
     /**
-     * Set updatedAt
+     * Set updated
      *
      * @param \DateTime $updatedAt
      * @return Page
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdated($updated)
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated = $updated;
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get updated
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
+    public function getUpdated()
     {
-        return $this->updatedAt;
+        return $this->updated;
     }
 
     /**
-     * Set deletedAt
+     * Set deleted
      *
-     * @param \DateTime $deletedAt
+     * @param \DateTime $deleted
      * @return Page
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeleted($deleted)
     {
-        $this->deletedAt = $deletedAt;
+        $this->deleted = $deleted;
 
         return $this;
     }
 
     /**
-     * Get deletedAt
+     * Get deleted
      *
      * @return \DateTime 
      */
-    public function getDeletedAt()
+    public function getDeleted()
     {
-        return $this->deletedAt;
+        return $this->deleted;
+    }
+    
+    /*
+     * Get UploadRootDir
+     * 
+     * @return string
+     */
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/uploads/pages';
     }
     
     /**

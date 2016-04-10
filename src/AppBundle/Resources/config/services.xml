@@ -11,10 +11,10 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
         
-        <service id="app.routing_loader" class="AppBundle\Routing\ExtraLoader">
+<!--        <service id="app.routing_loader" class="AppBundle\Routing\ExtraLoader">
             <tag name="routing.loader" />
             <argument type="service" id="doctrine.orm.entity_manager" />
-        </service>
+        </service>-->
         
         <service id="kit_system.form.type.route" class="AppBundle\Form\Type\RouteType">
             <argument type="service" id="router" />

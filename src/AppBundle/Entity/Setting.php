@@ -6,27 +6,75 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile as UploadedFile;
 
 /**
- * @IgnoreAnnotation
+ * Class Setting
+ * @package AppBundle\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Setting")
+ * @ORM\Table(name="app_settings")
  */
 class Setting {
-    protected $name;
-    protected $value;
-    protected $type;
-    protected $section;
-    protected $module_id;
+    
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     * 
+     * @var integer
+     */
+    private $name;
+    
+    /**
+     * @ORM\Column
+     * 
+     * @var text
+     */
+    private $value;
+    
+    /**
+     * @ORM\Column(length=64)
+     * 
+     * @var string
+     */
+    private $type;
+    
+    /**
+     * @ORM\Column(length=64)
+     * 
+     * @var string
+     */
+    private $section;
+    
+    //protected $module_id;
 
     private $path = 'web/uploads/system';
     
-	 public function getName()
-	 {
-		 return $this->name;
-	 }
-    
-	public function getValue()
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return string
+     */
+    public function setName($name)
     {
-        return $this->value;
+        $this->name = $name;
+    
+        return $this;
     }
     
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * Set value
+     *
+     * @param text $value
+     * @return Setting
+     */
     public function setValue($value)
     {
         if ($value instanceof UploadedFile)
@@ -41,6 +89,62 @@ class Setting {
             $this->value = $value;    
         }
         return $this;
+    }
+    
+    /**
+     * Get value
+     *
+     * @return text 
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+    
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Setting
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+    
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set section
+     *
+     * @param string $section
+     * @return Setting
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+    
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return string 
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 
     protected function getUploadRootDir()
@@ -79,7 +183,7 @@ class Setting {
         }
     }
     
-  /**
+    /**
      * @ORM\PostPersist()
      * @ORM\PostUpdate()
      */
@@ -104,7 +208,6 @@ class Setting {
         $this->value = null;
     }
     
-
     /**
      * @ORM\PostRemove()
      */
@@ -121,59 +224,5 @@ class Setting {
         return null === $this->path
             ? null
             : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path;
-    }
-    
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Setting
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Setting
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    
-        return $this;
-    }
-
-    /**
-     * Set section
-     *
-     * @param string $section
-     * @return Setting
-     */
-    public function setSection($section)
-    {
-        $this->section = $section;
-    
-        return $this;
-    }
-
-    /**
-     * Get section
-     *
-     * @return string 
-     */
-    public function getSection()
-    {
-        return $this->section;
     }
 }
