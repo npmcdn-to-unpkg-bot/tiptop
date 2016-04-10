@@ -14,7 +14,8 @@ use AppBundle\Controller\AdminController;
  *
  * @author anton
  */
-class IndexAdminController extends AdminController {
+class IndexAdminController extends AdminController
+{
     //put your code here
     public function indexAction(Request $request)
     {

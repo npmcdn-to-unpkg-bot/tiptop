@@ -6,7 +6,7 @@
     
     <services>
         
-        <service id="kernel.listener.articles_admin_menu" class="Kit\ArticlesBundle\EventListener\AdminMenuListener">
+        <service id="kernel.listener.articles_admin_menu" class="ArticlesBundle\EventListener\AdminMenuListener">
             <tag name="kernel.event_listener" event="system.admin_menu" method="onAdminMenuBuild" />
         </service>
         

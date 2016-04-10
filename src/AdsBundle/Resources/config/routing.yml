@@ -18,3 +18,7 @@ _ads_admin_ad_edit:
     path: admin/ads/{id}/edit
     defaults: { _controller: AdsBundle:IndexAdmin:Edit }
     
+# API
+ads_api_list:
+    path:  /api/ads/list/{page}
+    defaults: { _controller: AdsBundle:Api:list }

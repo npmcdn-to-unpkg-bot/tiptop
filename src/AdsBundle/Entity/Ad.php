@@ -2,65 +2,91 @@
 
 namespace AdsBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Entity as Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+//use AdsBundle\Repository\Ad;
+
 /**
- * Ad
+ * Class Ad
+ * @package AdBundle\Entity
+ * @ORM\Entity(repositoryClass="AdsBundle\Repository\Ad")
+ * @ORM\Table(name="app_ad")
  */
 class Ad extends Entity
 {
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue()
+     * 
      * @var integer
      */
     private $id;
     
     /**
-     * @var string
-     */
-    private $title;
-
-    /**
+     * @ORM\Column(length=255)
+     * 
      * @var string
      */
     private $image;
     
     /**
+     * @ORM\Column(length=255)
+     * @Assert\NotNull
+     * 
      * @var string
+     */
+    private $title;
+    
+    /**
+     * @ORM\Column
+     * 
+     * @var text
      */
     private $body;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * 
      * @var \DateTime
      */
-    private $createdAt;
+    private $created;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="change", field={"title", "body"})
+     * 
      * @var \DateTime
      */
-    private $updatedAt;
+    private $updated;
 
     /**
+     * @ORM\Column(type="datetime")
+     * 
      * @var \DateTime
      */
-    private $deletedAt;
+    private $deleted;
 
 
     /**
-     * Set objectId
+     * Set id
      *
-     * @param integer $objectId
+     * @param integer $id
      * @return Ad
      */
     public function setId($id)
     {
-        $this->objectId = $id;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * Get objectId
+     * Get id
      *
      * @return integer 
      */
@@ -68,30 +94,33 @@ class Ad extends Entity
     {
         return $this->id;
     }
-    
+
     /**
-     * Set objectId
+     * Set image
      *
-     * @param integer $objectId
-     * @return Ad
+     * @param string $image
      */
-    public function setObjectId($objectId)
+    public function setImage(UploadedFile $file = null)
     {
-        $this->objectId = $objectId;
+        $filename = sha1(uniqid(mt_rand(), true));
+        $filename = $filename.'.'.$file->guessExtension();
+        $file->move($this->getUploadRootDir(), $filename);
+        
+        $this->image = $filename;
 
         return $this;
     }
-
+    
     /**
-     * Get objectId
+     * Get image
      *
-     * @return integer 
+     * @return string 
      */
-    public function getObjectId()
+    public function getImage()
     {
-        return $this->objectId;
+        return $this->image;
     }
-
+    
     /**
      * Set title
      *
@@ -116,52 +145,6 @@ class Ad extends Entity
     }
     
     /**
-     * Set title
-     *
-     * @param string $title
-     * @return Page
-     */
-    public function setImage(UploadedFile $file = null)
-    {
-        
-        $filename = sha1(uniqid(mt_rand(), true));
-        $filename = $filename.'.'.$file->guessExtension();
-        $file->move($this->getUploadRootDir(), $filename);
-        
-        $this->image = $filename;
-
-        return $this;
-    }
-    
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded
-        // documents should be saved
-        return __DIR__.'/../../../../web/uploads/ads';
-    }
-    
-    /**
-     * Get the image URL
-     *
-     * @return null|string
-     */
-    public function getWebPath()
-    {
-        return '/uploads/pages/' . $this->getImage();
-    }
-    
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-    
-    
-    /**
      * Set body
      *
      * @param string $body
@@ -183,73 +166,109 @@ class Ad extends Entity
     {
         return $this->body;
     }
-
+    
     /**
-     * Set createdAt
+     * Set created
      *
-     * @param \DateTime $createdAt
+     * @param \DateTime $created
      * @return Ad
      */
-    public function setCreatedAt($createdAt)
+    public function setCreated($created)
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get created
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
+    public function getCreated()
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
     /**
-     * Set updatedAt
+     * Set updated
      *
-     * @param \DateTime $updatedAt
+     * @param \DateTime $updated
      * @return Ad
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdated($updated)
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated = $updated;
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get updated
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
+    public function getUpdated()
     {
-        return $this->updatedAt;
+        return $this->updated;
     }
 
     /**
-     * Set deletedAt
+     * Set deleted
      *
-     * @param \DateTime $deletedAt
+     * @param \DateTime $deleted
      * @return Ad
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeleted($deleted)
     {
-        $this->deletedAt = $deletedAt;
+        $this->deleted = $deleted;
 
         return $this;
     }
 
     /**
-     * Get deletedAt
+     * Get deleted
      *
      * @return \DateTime 
      */
-    public function getDeletedAt()
+    public function getDeleted()
     {
-        return $this->deletedAt;
+        return $this->deleted;
+    }
+    
+    /**
+     * Get Array
+     * @return array
+     */
+//    public function toArray()
+//    {
+//        return array(
+//            'id' => $this->getId(),
+//            'title' => $this->getTitle(),
+//            'image' => $this->getImage(),
+//            'body' => $this->getBody()
+//        );
+//    }
+    
+    /**
+     * Get UploadRootDir
+     * 
+     * @return type
+     */
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/uploads/ads';
+    }
+    
+    /**
+     * Get the image URL
+     *
+     * @return null|string
+     */
+    public function getWebPath()
+    {
+        return '/uploads/pages/' . $this->getImage();
     }
 }

@@ -28,13 +28,13 @@ class Bundle
     private $name;
 
     /**
-     * @ORM\Column(name="isActive", type="bool")
+     * @ORM\Column(name="isActive", type="boolean", options={"default": false})
      * @var boolean
      */
     private $isActive;
 
     /**
-     * @ORM\Column(name="isSystem", type="bool")
+     * @ORM\Column(name="isSystem", type="boolean", options={"default": false})
      * @var boolean
      */
     private $isSystem;

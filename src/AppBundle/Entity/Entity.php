@@ -19,9 +19,7 @@ abstract class Entity
     protected $objectId;
     
     public function createObject()
-    {
-        var_dump($this->getRepository());exit;
-        
+    {   
         if ( is_null($this->objectId) )
         {
             $em = $this->getDoctrine()->getManager();
@@ -30,6 +28,17 @@ abstract class Entity
             $em->persist($object);
             $em->flush();
         }
+    }
+    
+    public function toArray()
+    {
+        $repository = $this->getRepository();
+        $fields = $repository->getFieldNames();
+        $array = array();
+        foreach ($fields as $field) {
+            $array[$field] = $repository->getFieldValue($this, $field);
+        }
+        return $array;
     }
     
     /**
@@ -45,7 +54,7 @@ abstract class Entity
             $kernel = $kernel->getKernel();
         }
 
-        $annotationReader = $kernel->getContainer()->get('yml');
+        $annotationReader = $kernel->getContainer()->get('annotation_reader');
 
         $object = new \ReflectionObject($this);
 

@@ -25,49 +25,18 @@ class ExtraLoader extends Loader {
         }
 
         $collection = new RouteCollection();
-//echo '123';
         $activeBundles = $this->em->getRepository('AppBundle:Bundle')
                             ->findByIsActive(1);
 
         foreach ($activeBundles as $bundleName)
         {
-//            echo $bundleName->getName();
             $resource = '@' . $bundleName->getName() . '/Resources/config/routing.yml';
-//            echo $resource . PHP_EOL;
             $type = 'yaml';
             $importedRoutes = $this->import($resource, $type);
             $collection->addCollection($importedRoutes);
         }
-//        var_dump("finish");
-        
-        
-//        $resource = '@AppBundle/Resources/config/routing.yml';
-//        $type = 'yaml';
-//        $importedRoutes = $this->import($resource, $type);
-//        $collection->addCollection($importedRoutes);
-//        
-//        $resource = '@ArticlesBundle/Resources/config/routing.yml';
-//        $type = 'yaml';
-//        $importedRoutes = $this->import($resource, $type);
-//        $collection->addCollection($importedRoutes);
-//        
-//        $resource = '@GalleriesBundle/Resources/config/routing.yml';
-//        $type = 'yaml';
-//        $importedRoutes = $this->import($resource, $type);
-//        $collection->addCollection($importedRoutes);
-//        
-//        $resource = '@ProductsBundle/Resources/config/routing.yml';
-//        $type = 'yaml';
-//        $importedRoutes = $this->import($resource, $type);
-//        $collection->addCollection($importedRoutes);
-//        
-//        $resource = '@AdsBundle/Resources/config/routing.yml';
-//        $type = 'yaml';
-//        $importedRoutes = $this->import($resource, $type);
-//        $collection->addCollection($importedRoutes);
 
         $collection->addCollection($importedRoutes);
-    
 
         $routeSettings = $this->em->getRepository('AppBundle:Setting')
                             ->find('system_mainpage_route');

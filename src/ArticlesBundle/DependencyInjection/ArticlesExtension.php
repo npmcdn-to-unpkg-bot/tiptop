@@ -1,13 +1,13 @@
 <?php
 
-namespace Kit\ArticlesBundle\DependencyInjection;
+namespace ArticlesBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
 
-class KitArticlesExtension extends Extension
+class ArticlesExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -17,6 +17,6 @@ class KitArticlesExtension extends Extension
 
     public function getAlias()
     {
-        return 'kit_articles';
+        return 'articles';
     }
 }
