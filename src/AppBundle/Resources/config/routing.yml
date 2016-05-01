@@ -42,9 +42,13 @@ _system_admin_settings:
 _system_page:
     path: /page/{slug}.html
     defaults: { _controller: AppBundle:Pages:Index }
-    
-_system_admin_pages:
+
+system_admin_pages_first:
     path: admin/pages
+    defaults: { _controller: AppBundle:PagesAdmin:List }
+    
+system_admin_pages:
+    path: admin/pages/{page}
     defaults: { _controller: AppBundle:PagesAdmin:List }
 
 _system_admin_pages_add:

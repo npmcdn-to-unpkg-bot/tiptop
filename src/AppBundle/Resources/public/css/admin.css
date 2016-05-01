@@ -16,7 +16,32 @@ and open the template in the editor.
     display:inline-block;
 }
 .row.row-offcanvas .row-admin-right {
+    list-style-type: none;
     float:right;
     width:10%;
     display:inline-block;
+}
+.media-list {
+    margin-top: 30px;
+}
+.media-list .media-body {
+    overflow: hidden;
+    position: relative;
+}
+.media-list .media-body .media-group-buttons {
+    display: block;
+    float: right;
+    margin-top: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.clear {
+    clear: both;
+    border: medium none !important;
+    clear: both !important;
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0;
 }

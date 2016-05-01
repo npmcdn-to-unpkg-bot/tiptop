@@ -23,7 +23,7 @@
               <div class="media-body">
                 <h4 class="media-heading"><a href="{{ path('_ads_admin_ad_edit', { id: item.id }) }}">{{ item.title }}</a></h4>
                 {{ item.body }}
-                <p>
+                <p class="media-group-buttons">
                     <a href="#" class="btn btn-primary" role="button">Удалить</a>
                     <a href="{{ path('_ads_admin_ad_edit', { id: item.id }) }}" class="btn btn-default" role="button">Редактировать</a>
                 </p>

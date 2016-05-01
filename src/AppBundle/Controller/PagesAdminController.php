@@ -9,14 +9,18 @@ use AppBundle\Entity\Page;
 
 class PagesAdminController extends Controller
 {
-    public function ListAction()
+    public function ListAction($page = 1)
     {
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository('AppBundle:Page')
-                       ->findAll();
+        $repo = $em->getRepository('AppBundle:Page');
+        $pagination = $repo->getPagination($page);
+        
+        $maxPages = ceil($pagination->count() / $repo::limit);
         
         return $this->render('AppBundle:PagesAdmin:list.html.twig', array(
-            'pages' => $pages
+            'pages'     => $pagination->getIterator(),
+            'maxPages'  => $maxPages,
+            'thisPage'  => $page
         ));
     }
 

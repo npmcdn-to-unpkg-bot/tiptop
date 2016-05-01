@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Class Page
  * @package AppBundle\Entity
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Page")
  * @ORM\Table(name="app_page")
  */
 class Page
