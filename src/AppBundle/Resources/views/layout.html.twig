@@ -16,18 +16,27 @@
 
     <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">TipTop</a>
-          </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TipTop</a>
+        </div>
           
-          {{ render(controller('AppBundle:Default:Menu', { 'routeName' : app.request.attributes.get('_route') })) }}
-          
+        {{ render(controller('AppBundle:Default:Menu', { 'routeName' : app.request.attributes.get('_route') })) }}
+        
+        {% if true %}{# TODO: It's optional (from admin settings) #}
+            <div id="navbar-signin" class="collapse navbar-collapse auth-tab">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('app_login') }}">{{ 'login'|trans }}</a></li>
+                    <li><a href="{{ path('app_register') }}">{{ 'register'|trans }}</a></li>
+                </ul>
+            </div>
+        {% endif %}
+
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 

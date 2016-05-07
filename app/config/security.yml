@@ -1,20 +1,9 @@
 security:
     providers:
-
-        in_memory:
-            memory:
-                users:
-                    ryan:
-                        password: $2a$12$LCY0MefVIEc3TYPHV9SNnuzOfyr2p/AXIGoQJEDs4am4JwhNz/jli
-                        roles: 'ROLE_USER'
-                    admin:
-                        password: $2a$12$cyTWeE9kpq1PjqKFiWUZFuCRPwVyAZwm4XzMZ1qPUFl7/flCM3V0G
-                        roles: 'ROLE_ADMIN'
-
-#        in_database:
-#            entity:
-#                class: AppBundle:User
-#                property: username
+        in_database:
+            entity:
+                class: AppBundle:User
+                property: username
 
     firewalls:
         main:
@@ -23,12 +12,18 @@ security:
                 check_path: /login_check
                 login_path: /login
 #            provider: in_database
+            logout:
+                path:   /logout
+                target: /
         
     encoders:
-        Symfony\Component\Security\Core\User\User:
+        AppBundle\Entity\User:
             algorithm: bcrypt
-            cost: 12
+#            cost: 12
         
     access_control:
         # require ROLE_ADMIN for /admin*
         - { path: ^/admin, roles: ROLE_ADMIN }
+        
+    acl:
+        connection: default

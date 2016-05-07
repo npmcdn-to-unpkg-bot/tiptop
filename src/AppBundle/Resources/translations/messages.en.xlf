@@ -6,6 +6,18 @@
                 <source>back</source>
                 <target>Back</target>
             </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Sing In</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Sign Up</target>
+            </trans-unit>
+            <trans-unit id="logout">
+                <source>logout</source>
+                <target>Sign Out</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

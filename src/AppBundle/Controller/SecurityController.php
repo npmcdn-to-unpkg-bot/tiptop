@@ -10,11 +10,13 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
+        /* @var $authenticationUtils Symfony\Component\Security\Http\Authentication\AuthenticationUtils */
         $authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-
+       // if ( $request->getMethod() == 'POST' ) {
+        //var_dump($error);exit;//}
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
         

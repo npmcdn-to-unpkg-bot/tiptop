@@ -105,7 +105,7 @@ class Page
      */
     public function setId($id)
     {
-        $this->id = $slug;
+        $this->id = $id;
 
         return $this;
     }

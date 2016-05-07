@@ -545,3 +545,8 @@
 .margin-top {
     margin-top: 10px;
 }
+.navbar-collapse.auth-tab {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}

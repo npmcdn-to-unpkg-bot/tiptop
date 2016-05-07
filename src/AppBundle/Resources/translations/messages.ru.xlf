@@ -6,6 +6,18 @@
                 <source>back</source>
                 <target>Назад</target>
             </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Войти</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Регистрация</target>
+            </trans-unit>
+            <trans-unit id="logout">
+                <source>logout</source>
+                <target>Выйти</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

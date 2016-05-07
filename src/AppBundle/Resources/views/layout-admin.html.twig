@@ -16,7 +16,14 @@
                     <a href="/admin" title="Администрирование">Администрирование</a>
                 </h1>
             </div>
+            
             {{ render(controller('AppBundle:IndexAdmin:Menu', { 'routeName' : app.request.attributes.get('_route') } )) }}
+            
+            <div id="navbar-signin" class="collapse navbar-collapse auth-tab">
+                <ul class="nav nav-tabs">
+                    <li><a href="{{ path('_security_logout') }}">{{ 'logout'|trans }}</a></li>
+                </ul>
+            </div>
         </div>
         
         {% for flash_message in app.session.flashbag.get('success') %}

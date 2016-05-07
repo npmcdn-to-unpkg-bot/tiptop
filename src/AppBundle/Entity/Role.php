@@ -7,7 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Role
+ * Class Role
+ * @package AppBundle\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\RoleRepository")
+ * @ORM\Table(name="app_roles")
  */
 class Role implements RoleInterface
 {

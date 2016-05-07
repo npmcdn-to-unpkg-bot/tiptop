@@ -45,3 +45,6 @@ and open the template in the editor.
     padding: 0 !important;
     width: 0;
 }
+.navbar-collapse.auth-tab .nav-tabs {
+    border-bottom: 0px;
+}

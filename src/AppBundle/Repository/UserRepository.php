@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -18,7 +18,7 @@ use Doctrine\ORM\NoResultException;
 class UserRepository extends EntityRepository implements UserProviderInterface
 {
     public function loadUserByUsername($username)
-    {exit;
+    {
         $q = $this
             ->createQueryBuilder('u')
             ->select('u')
@@ -60,5 +60,19 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     {
         return $this->getEntityName() === $class
             || is_subclass_of($class, $this->getEntityName());
+    }
+    
+    /**
+     * Find Role
+     * 
+     * @param type $id
+     * @return \AppBundle\Entity\Role
+     */
+    public function findRoleById($id)
+    {
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Role');
+        $role = $repository->find($id);
+        return $role;
     }
 }
