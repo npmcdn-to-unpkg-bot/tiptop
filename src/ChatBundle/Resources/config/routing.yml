@@ -1,0 +1,3 @@
+chat_index:
+    path:  /chat
+    defaults: { _controller: ChatBundle:Default:index }
