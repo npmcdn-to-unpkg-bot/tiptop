@@ -1,8 +1,56 @@
 {% extends "AppBundle::layout-admin.html.twig" %}
 
 {% block content %}
-    <h2>Версия системы: 1.0</h2>
-    <h3>Редактирование/Удаление/Создание страниц</h3>
-    <p>Вы можете изменить содержимое любой существующей страницы сайта, за исключением автоматически-генерируемых страниц некоторыми модулями.</p>
-    <p>Так же Вы можете удалить любую страницу на сайте.</p>
+    <div class="bs-docs-section">
+        <h2 id="glyphicons-glyphs">{{'app_bundle_settings'|trans}}</h2>
+        <p>{{'app_bundle_settings_desc'|trans}}</p>
+        <div class="bs-glyphicons">
+            <ul class="bs-glyphicons-list">
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-user"></span>
+                    <span class="glyphicon-class">Users&Groups</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-file"></span>
+                    <span class="glyphicon-class">Pages</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-cog"></span>
+                    <span class="glyphicon-class">Settings</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-cd"></span>
+                    <span class="glyphicon-class">modules</span>
+                </li>
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-envelope"></span>
+                    <span class="glyphicon-class">email settings</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h2 id="glyphicons-glyphs">{{'ads_bundle_settings'|trans}}</h2>
+        <p>{{'ads_bundle_settings_desc'|trans}}</p>
+        <div class="bs-glyphicons">
+            <ul class="bs-glyphicons-list">
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-file"></span>
+                    <span class="glyphicon-class">Ads</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h2 id="glyphicons-glyphs">{{'galleries_bundle_settings'|trans}}</h2>
+        <p>{{'galleries_bundle_settings_desc'|trans}}</p>
+        <div class="bs-glyphicons">
+            <ul class="bs-glyphicons-list">
+                <li>
+                    <span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+                    <span class="glyphicon-class">Galleries</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

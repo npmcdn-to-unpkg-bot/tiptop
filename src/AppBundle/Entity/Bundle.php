@@ -97,7 +97,7 @@ class Bundle
      * @param \bool $isActive
      * @return Bundle
      */
-    public function setIsActive(\bool $isActive)
+    public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
 
@@ -120,7 +120,7 @@ class Bundle
      * @param \bool $isSystem
      * @return Bundle
      */
-    public function setIsSystem(\bool $isSystem)
+    public function setIsSystem($isSystem)
     {
         $this->isSystem = $isSystem;
 
