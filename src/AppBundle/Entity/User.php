@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use AppBundle\Entity\Entity as Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class User
@@ -30,6 +31,12 @@ class User extends Entity implements AdvancedUserInterface, \Serializable
      */
     private $username;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+    
     /**
      * @ORM\Column(type="string", length=64)
      * 
@@ -271,5 +278,15 @@ class User extends Entity implements AdvancedUserInterface, \Serializable
             // see section on salt below
             // $this->salt
         ) = unserialize($serialized);
+    }
+    
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
     }
 }

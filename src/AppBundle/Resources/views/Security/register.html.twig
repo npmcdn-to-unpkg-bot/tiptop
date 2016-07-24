@@ -1,0 +1,20 @@
+{% extends "AppBundle::empty.html.twig" %}
+
+{% block title "Login" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/app/css/login.css') }}">   
+{% endblock %}
+
+{% block content %}
+    
+    {{ form_start(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.plainPassword.first) }}
+        {{ form_row(form.plainPassword.second) }}
+
+        <button type="submit">Register!</button>
+    {{ form_end(form) }}
+    
+{% endblock %}

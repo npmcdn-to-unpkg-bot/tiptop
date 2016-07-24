@@ -1,6 +1,6 @@
-_system_index:
+app_index:
     path:  /index
-    defaults: { _controller: AppBundle:Index:index }
+    defaults: { _controller: AppBundle:Default:index }
 
 app_login:
     path: /login
