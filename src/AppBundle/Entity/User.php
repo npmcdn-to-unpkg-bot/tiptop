@@ -10,7 +10,7 @@ use AppBundle\Entity\Entity as Entity;
  * Class User
  * @package AppBundle\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
- * @ORM\Table(name="app_users")
+ * @ORM\Table(name="system_users")
  */
 class User extends Entity implements AdvancedUserInterface, \Serializable
 {
