@@ -1,11 +1,11 @@
-{% extends "KitSystemBundle::layout-admin.html.twig" %}
+{#{% extends "AppBundle::layout-admin.html.twig" %}
 
 {% block title "Администрирование - Новости" %}
 
 {% block content %}
     
     <button type="button" class="btn btn-default">
-        <a href="{{ path('_articles_admin_add') }}">Добавить</a>
+        <a href="{{ path('articles_admin_add') }}">Добавить</a>
     </button>
     <br/>
     <br/>
@@ -13,16 +13,77 @@
         {% for item in articles %}
             <div class="media">
               <div class="media-left media-middle">
-                <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">
+                <a href="{{ path('articles_admin_edit', { id: item.id }) }}">
                   <img class="media-object" src="{{ asset('bundles/system/images/empty.svg') }}" alt="{{ item.title }}">
                 </a>
               </div>
               <div class="media-body">
-                <h4 class="media-heading"><a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">{{ item.title }}</a></h4>
+                <h4 class="media-heading"><a href="{{ path('articles_admin_edit', { id: item.id }) }}">{{ item.title }}</a></h4>
                 {{ item.body }}
               </div>
             </div>
         {% endfor %}
     </div>
 
+{% endblock %}
+#}
+
+
+{% extends "AppBundle::layout-admin.html.twig" %}
+
+{% block title "Администрирование - Новости" %}
+    
+{% block right_menu %}
+    <ul class="row-admin-right">
+        <li><a class="btn btn-default margin-top" href="{{ path('articles_admin_add') }}">Добавить</a></li>
+    </ul>
+{% endblock %}
+    
+{% block content %}
+
+    <ul class="media-list row-admin-left">
+        {% for item in articles %}
+            <li class="media">
+                <div class="media-left">
+                    <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">
+
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.title }}</h4>
+                    <p></p>
+                    <p class="media-group-buttons">
+                        <a href="{{ path('articles_admin_delete', { id: item.id })}}" class="btn btn-primary" role="button">Удалить</a>
+                        <a href="{{ path('articles_admin_edit', { id: item.id }) }}" class="btn btn-default" role="button">Редактировать</a>
+                    </p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <div class="clear"></div>
+    
+    {% if maxPages > 1 %}
+        <div>
+            <center>
+                <ul class="pagination pagination-sm">
+
+                    <li {{ thisPage == 1 ? 'class="disabled"' }}>
+                        <a href="{{ path('system_admin_pages', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+                    </li>
+
+                    {% for i in 1..maxPages %}
+                        <li {{ thisPage == i ? 'class="active"' }}>
+                        <a href="{{ path('system_admin_pages', {page: i}) }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+
+                    <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+                        <a href="{{ path('system_admin_pages', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+                    </li>
+                </ul>
+            </center>
+        </div>
+    {% endif %}
+  
 {% endblock %}

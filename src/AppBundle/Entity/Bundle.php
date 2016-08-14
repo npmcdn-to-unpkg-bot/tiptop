@@ -22,7 +22,7 @@ class Bundle
     private $id;
 
     /**
-     * @ORM\Column(length=40)
+     * @ORM\Column(name="name", length=40)
      * @var string
      */
     private $name;

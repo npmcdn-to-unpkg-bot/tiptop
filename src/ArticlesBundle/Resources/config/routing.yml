@@ -1,15 +1,23 @@
-_articles_index:
+articles_index:
     path:  /articles
-    defaults: { _controller: KitArticlesBundle:Index:index }
+    defaults: { _controller: ArticlesBundle:Index:index }
     
-_articles_view:
+articles_view:
     path:  /article/{id}/view
-    defaults: { _controller: KitArticlesBundle:Index:view }
+    defaults: { _controller: ArticlesBundle:Index:view }
     
-_articles_admin_index:
+articles_admin_index:
     path:  /admin/articles
-    defaults: { _controller: KitArticlesBundle:IndexAdmin:index }
+    defaults: { _controller: ArticlesBundle:IndexAdmin:index }
     
-_articles_admin_add:
+articles_admin_add:
     path:  /admin/articles/add
-    defaults: { _controller: KitArticlesBundle:IndexAdmin:add }
+    defaults: { _controller: ArticlesBundle:IndexAdmin:add }
+    
+articles_admin_edit:
+    path:  /admin/articles/edit
+    defaults: { _controller: ArticlesBundle:IndexAdmin:edit }
+    
+articles_admin_delete:
+    path:  /admin/articles/edit
+    defaults: { _controller: ArticlesBundle:IndexAdmin:delete }

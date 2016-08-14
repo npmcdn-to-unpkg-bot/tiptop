@@ -54,7 +54,7 @@ class Page
     private $nameInMenu;    
 
     /**
-     * @ORM\Column
+     * @ORM\Column(name="body", type="text")
      * 
      * @var text
      */
@@ -75,7 +75,7 @@ class Page
     private $description;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=false)
      * @Gedmo\Timestampable(on="create")
      * 
      * @var \DateTime
@@ -83,7 +83,7 @@ class Page
     private $created;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="change", field={"title", "body"})
      * 
      * @var \DateTime
@@ -91,7 +91,7 @@ class Page
     private $updated;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * 
      * @var \DateTime
      */

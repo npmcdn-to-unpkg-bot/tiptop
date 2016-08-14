@@ -14,6 +14,6 @@ class AdminMenuListener
 {
     public function onAdminMenuBuild(MenuEvent $event)
     {
-        $event->addItem('_ads_admin_index', 'Обьявления');
+        $event->addItem('ads_admin_index', 'Обьявления');
     }
 }

@@ -24,10 +24,28 @@
 
 {% block form_row %}
 {% spaceless %}
-    <div class="form_row">
+    <div class="input-group">
         {{ form_label(form) }}
         {{ form_errors(form) }}
         {{ form_widget(form) }}
     </div>
 {% endspaceless %}
 {% endblock form_row %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+    {% endif %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+
+    <span {% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        {{ label|trans({}, translation_domain) }}
+        {% if attr.note is defined %}
+            <span style="font: 11px normal; font-family: arial;">({{ attr.note }})</span>
+        {% endif %}
+    </span>
+{% endspaceless %}
+{% endblock form_label %}

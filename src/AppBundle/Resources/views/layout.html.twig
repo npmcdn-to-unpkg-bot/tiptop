@@ -31,8 +31,12 @@
         {% if true %}{# TODO: It's optional (from admin settings) #}
             <div id="navbar-signin" class="collapse navbar-collapse auth-tab">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ path('app_login') }}">{{ 'login'|trans }}</a></li>
-                    <li><a href="{{ path('app_register') }}">{{ 'register'|trans }}</a></li>
+                    {% if app.user %}
+                        <li><a href="{{ path('_security_logout') }}">{{ 'logout'|trans }}</a></li>
+                    {% else %}
+                        <li><a href="{{ path('_security_login') }}">{{ 'login'|trans }}</a></li>
+                        <li><a href="{{ path('app_register') }}">{{ 'register'|trans }}</a></li>
+                    {% endif %}
                 </ul>
             </div>
         {% endif %}

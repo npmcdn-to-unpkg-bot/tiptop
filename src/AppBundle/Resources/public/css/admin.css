@@ -48,3 +48,20 @@ and open the template in the editor.
 .navbar-collapse.auth-tab .nav-tabs {
     border-bottom: 0px;
 }
+.bs-glyphicons-list a {
+    color: #333;
+}
+
+.admin-form {
+    background-color: #fff;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    border-width: 1px;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+form .input-group {
+    padding-top: 20px;
+}

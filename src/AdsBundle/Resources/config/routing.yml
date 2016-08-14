@@ -6,7 +6,7 @@ _ads_view:
     path:  /article/{id}/view
     defaults: { _controller: AdsBundle:Index:view }
     
-_ads_admin_index:
+ads_admin_index:
     path:  /admin/ads
     defaults: { _controller: AdsBundle:IndexAdmin:index }
     

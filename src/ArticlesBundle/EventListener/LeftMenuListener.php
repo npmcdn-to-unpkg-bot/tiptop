@@ -14,6 +14,6 @@ class LeftMenuListener
 {
     public function onAdminMenuBuild(MenuEvent $event)
     {
-        $event->addItem('_articles_admin_index', 'Новости');
+        $event->addItem('articles_admin_index', 'Новости');
     }
 }

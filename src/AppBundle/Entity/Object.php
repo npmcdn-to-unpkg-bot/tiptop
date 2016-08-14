@@ -23,10 +23,10 @@ class Object
     /**
      * Set id
      *
-     * @param \int $id
+     * @param int $id
      * @return Object
      */
-    public function setId(\int $id)
+    public function setId($id)
     {
         $this->id = $id;
     
@@ -36,7 +36,7 @@ class Object
     /**
      * Get id
      *
-     * @return \int 
+     * @return int 
      */
     public function getId()
     {

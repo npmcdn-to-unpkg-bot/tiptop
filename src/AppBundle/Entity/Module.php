@@ -102,10 +102,10 @@ class Module
     /**
      * Set is_active
      *
-     * @param \bool $isActive
+     * @param boolean $isActive
      * @return Module
      */
-    public function setIsActive(\bool $isActive)
+    public function setIsActive($isActive)
     {
         $this->is_active = $isActive;
 
@@ -115,7 +115,7 @@ class Module
     /**
      * Get is_active
      *
-     * @return \bool 
+     * @return boolean
      */
     public function getIsActive()
     {

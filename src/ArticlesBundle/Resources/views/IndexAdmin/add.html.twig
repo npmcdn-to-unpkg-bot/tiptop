@@ -1,0 +1,37 @@
+{% extends "AppBundle::layout-admin.html.twig" %}
+
+{% block head %}
+    <script src="{{ asset('bundles/app/js/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste jbimages"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages",
+            relative_urls: false
+        });
+    </script>
+{% endblock %}
+
+{% block right_menu %}
+    <ul class="row-admin-right">
+        <li><a class="btn btn-default margin-top" href="{{ path('articles_admin_index') }}">Назад</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+    <form class="pt30 admin-form" action="{{ path('articles_admin_add') }}" method="post" {#{{ form_enctype(form) }}#}>
+        
+        {% form_theme form 'AppBundle:Form:fields.html.twig' %}
+        
+        {{ form_widget(form) }}
+        
+        <br/>
+        <input type="submit" />
+    </form>
+    
+{% endblock %}

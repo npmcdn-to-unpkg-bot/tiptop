@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Object as Object;
+use Doctrine\Common\Annotations\AnnotationReader;
 
 abstract class Entity
 {
@@ -30,7 +31,7 @@ abstract class Entity
         }
     }
     
-    public function toArray()
+    public function getData()
     {
         $repository = $this->getRepository();
         $fields = $repository->getFieldNames();
@@ -40,7 +41,27 @@ abstract class Entity
         }
         return $array;
     }
-    
+
+    /**
+     * 
+     * @param array $data
+     * @return \AppBundle\Entity\Entity
+     */
+    public function setData(array $data)
+    {
+        if ($data)
+        {
+            foreach ($data as $key=>$val)
+            {
+                $method = "set" . ucfirst($key);
+                if (method_exists($this, $method)) {
+                    \call_user_func_array(array($this,$method), array($val));
+                }
+            }
+        }
+        return $this;
+    }
+
     /**
      * Return the actual entity repository
      * 
@@ -54,12 +75,15 @@ abstract class Entity
             $kernel = $kernel->getKernel();
         }
 
+        /* @var $annotationReader \Doctrine\Common\Annotations\AnnotationReader */
         $annotationReader = $kernel->getContainer()->get('annotation_reader');
 
         $object = new \ReflectionObject($this);
-
-        if ($configuration = $annotationReader->getClassAnnotation($object, 'Doctrine\ORM\Mapping\Entity')) {
-            if (!is_null($configuration->repositoryClass)) {
+        
+        if ($configuration = $annotationReader->getClassAnnotation($object, 'Doctrine\ORM\Mapping\Entity'))
+        {
+            if (!is_null($configuration->repositoryClass))
+            {
                 $repository = $kernel->getContainer()->get('doctrine.orm.entity_manager')->getRepository(get_class($this));
 
                 return $repository;

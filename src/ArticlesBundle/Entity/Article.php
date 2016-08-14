@@ -3,13 +3,14 @@
 namespace ArticlesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use AppBundle\Entity\Entity as Entity;
 
 /**
  * Class Article
  * @package ArticlesBundle\Entity
- * 
- * @ORM\Entity
+
+ * @ORM\Entity(repositoryClass="ArticlesBundle\Repository\ArticleRepository")
  * @ORM\Table(name="articles_news")
  * 
  */
@@ -37,28 +38,43 @@ class Article extends Entity
     private $body;
 
     /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
+     * @ORM\Column(type="text")
+     * @var string
      */
-    private $createdAt;
+    private $image;
+    
+    /**
+     * @var \DateTime $created
+     *
+     * @ODM\Date
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created", type="datetime")
+     */
+    private $created;
 
     /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
+     * @var \DateTime $updated
+     *
+     * @ODM\Date
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
-    private $updatedAt;
+    private $updated;
 
     /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
+     * @var \DateTime $deleted
+     *
+     * @ODM\Date
+     * @Gedmo\Timestampable(on="delete")
+     * @ORM\Column(name="deleted", type="datetime", nullable=true)
      */
-    private $deletedAt;
+    private $deleted;
 
 
     /**
      * Set objectId
      *
-     * @param integer $objectId
+     * @param integer $id
      * @return Article
      */
     public function setId($id)
@@ -148,71 +164,94 @@ class Article extends Entity
     }
 
     /**
-     * Set createdAt
+     * Set created
      *
-     * @param \DateTime $createdAt
+     * @param \DateTime $created
      * @return Article
      */
-    public function setCreatedAt($createdAt)
+    public function setCreated($created)
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get created
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
+    public function getCreated()
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
     /**
-     * Set updatedAt
+     * Set updated
      *
-     * @param \DateTime $updatedAt
+     * @param \DateTime $updated
      * @return Article
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdated($updated)
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated = $updated;
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get updated
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
+    public function getUpdated()
     {
-        return $this->updatedAt;
+        return $this->updated;
     }
 
     /**
-     * Set deletedAt
+     * Set deleted
      *
-     * @param \DateTime $deletedAt
+     * @param \DateTime $deleted
      * @return Article
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeleted($deleted)
     {
-        $this->deletedAt = $deletedAt;
+        $this->deleted = $deleted;
 
         return $this;
     }
 
     /**
-     * Get deletedAt
+     * Get deleted
      *
      * @return \DateTime 
      */
-    public function getDeletedAt()
+    public function getDeleted()
     {
-        return $this->deletedAt;
+        return $this->deleted;
+    }
+
+    /**
+     * Set image
+     * 
+     * @param type $image
+     * @return \ArticlesBundle\Entity\Article
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

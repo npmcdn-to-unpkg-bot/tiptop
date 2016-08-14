@@ -27,7 +27,7 @@ class Ad extends Entity
     private $id;
     
     /**
-     * @ORM\Column(length=255)
+     * @ORM\Column(name="image", length=255, nullable=true)
      * 
      * @var string
      */
@@ -57,7 +57,7 @@ class Ad extends Entity
     private $created;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="change", field={"title", "body"})
      * 
      * @var \DateTime
@@ -65,7 +65,7 @@ class Ad extends Entity
     private $updated;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * 
      * @var \DateTime
      */
