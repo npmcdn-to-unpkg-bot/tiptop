@@ -60,6 +60,8 @@
                 {{ render(controller('AppBundle:Default:RightMenu', { 'routeName' : app.request.attributes.get('_route') })) }}
             {% endif %}
 
+            {{ render(controller('AppBundle:Default:RightWidget', { 'routeName' : app.request.attributes.get('_route') })) }}
+            
         </div><!--/row-->
         
         <hr>

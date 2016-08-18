@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Chat</div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    ...
+  </table>
+</div>
+
+<script type="text/javascript">
+    var socket;
+    function start() {
+    
+    socket = new WebSocket("ws://tiptop.dev/app_dev.php/chat");
+    
+    socket.onopen = function() {
+      alert("Соединение установлено.");
+    };
+
+    socket.onclose = function(event) {
+      if (event.wasClean) {
+        alert('Соединение закрыто чисто');
+      } else {
+        alert('Обрыв соединения'); // например, "убит" процесс сервера
+      }
+      alert('Код: ' + event.code + ' причина: ' + event.reason);
+    };
+
+    socket.onmessage = function(event) {
+      alert("Получены данные " + event.data);
+    };
+
+    socket.onerror = function(error) {
+      alert("Ошибка " + error.message);
+    };
+    
+    
+    }
+    
+    function send() {
+        socket.send("Привет");
+    }
+</script>

@@ -6,6 +6,7 @@ use AppBundle\Controller\BaseController;
 use AppBundle\Entity\PageRepository;
 use AppBundle\Event\LeftMenuEvent;
 use AppBundle\Event\RightMenuEvent;
+use AppBundle\Event\RightWidgetEvent;
 //use GalleriesBundle\Entity\GalleryRepository as KitGalleriesBundle;
 //use GalleriesBundle\Entity\Gallery as Gallery;
 
@@ -37,6 +38,12 @@ class DefaultController extends BaseController
         ));
     }
 
+    /**
+     * Right menu
+     * 
+     * @param type $routeName
+     * @return type
+     */
     public function rightMenuAction($routeName)
     {
         $eventDispatcher = $this->get('event_dispatcher');
@@ -45,6 +52,25 @@ class DefaultController extends BaseController
 
         return $this->render('AppBundle:Default:right-menu.html.twig', array(
             'items' => $rightMenuEvent->getItems(),
+            'routeName' => $routeName
+        ));
+    }
+    
+    /**
+     * Right Widget
+     * 
+     * @param type $routeName
+     * @return type
+     */
+    public function rightWidgetAction($routeName)
+    {
+        $eventDispatcher = $this->get('event_dispatcher');
+        $event = new RightWidgetEvent();
+        $event->setContainer($this->container);
+        $eventDispatcher->dispatch('app.right_widget', $event);
+
+        return $this->render('AppBundle:Default:right-widget.html.twig', array(
+            'items' => $event->getWidgets(),
             'routeName' => $routeName
         ));
     }
