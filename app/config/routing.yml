@@ -3,6 +3,9 @@ app:
     defaults: { _controller: AppBundle:Default:index }
     methods:  [GET, HEAD]
 
+AppBundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+
 app_extra:
     resource: .
     type: extra

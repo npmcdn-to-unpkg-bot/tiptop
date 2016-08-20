@@ -16,7 +16,7 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>-->
         
-        <service id="kit_system.form.type.route" class="AppBundle\Form\Type\RouteType">
+        <service id="app.form.type.route" class="AppBundle\Form\Type\RouteType">
             <argument type="service" id="router" />
             <tag name="form.type" alias="route" />
         </service>

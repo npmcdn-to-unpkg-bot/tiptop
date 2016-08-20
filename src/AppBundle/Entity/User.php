@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class User
  * @package AppBundle\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
- * @ORM\Table(name="system_users")
+ * @ORM\Table(name="app_users")
  */
 class User extends Entity implements AdvancedUserInterface, \Serializable
 {

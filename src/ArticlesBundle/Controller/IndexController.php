@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\ArticlesBundle\Controller;
+namespace ArticlesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
