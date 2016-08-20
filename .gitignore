@@ -4,6 +4,5 @@ var/
 vendor/
 web/bundles
 app/bootstrap.php.cache
-bin/
 nbproject/
 web/uploads/
