@@ -9,15 +9,22 @@
 namespace ChatBundle\EventListener;
 
 use AppBundle\Event\RightWidgetEvent;
+use ChatBundle\Entity\Chat;
 
 class RightWidgetListener
 {
     public function onRightWidgetBuild(RightWidgetEvent $event)
     {
         $container = $event->getContainer();
-        $response = $container->get('templating')->render('ChatBundle:Default:widget.html.twig', array(
-
-        ));
-        $event->addWidget($response);
+        
+        if ($event->getUser())
+        {
+            $em = $event->getEntityManager();
+            $chat = $em->getRepository('ChatBundle:Chat')->findAll();
+            $response = $container->get('templating')->render('ChatBundle:Default:widget.html.twig', array(
+                "chat" => $chat
+            ));
+            $event->addWidget($response);
+        }
     }
 }

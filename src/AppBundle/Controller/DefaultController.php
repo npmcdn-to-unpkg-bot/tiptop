@@ -67,6 +67,8 @@ class DefaultController extends BaseController
         $eventDispatcher = $this->get('event_dispatcher');
         $event = new RightWidgetEvent();
         $event->setContainer($this->container);
+        $event->setEntityManager( $this->getDoctrine()->getEntityManager() );
+        $event->setUser($this->getUser());
         $eventDispatcher->dispatch('app.right_widget', $event);
 
         return $this->render('AppBundle:Default:right-widget.html.twig', array(

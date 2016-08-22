@@ -1,47 +1,51 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Chat</div>
-  <div class="panel-body">
-    <p>...</p>
+  <div class="panel-body content">
+    {% for message in chat %}
+        <p>{{ message.text }}</p>
+    {% endfor %}
   </div>
-
-  <!-- Table -->
-  <table class="table">
-    ...
-  </table>
+  <div class="panel-body input">
+      <p><input id="chat-input-text" type="text" value="" /></p>
+  </div>
 </div>
 
+<script type="text/javascript" src="{{ asset('bundles/chat/js/autobahn.min.js') }}"></script>
+
 <script type="text/javascript">
-    var socket;
-    function start() {
+$( document ).ready(function() {
     
-    socket = new WebSocket("ws://tiptop.dev/app_dev.php/chat");
+    var conn = new ab.Session('ws://localhost:8080',
+        function() {
+            conn.subscribe('test', function(topic, data) {
+                // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
+                console.log(topic, data);
+            });
+        },
+        function() {
+            console.warn('WebSocket connection closed');
+        },
+        {'skipSubprotocolCheck': true}
+    );
     
-    socket.onopen = function() {
-      alert("Соединение установлено.");
-    };
+    $("#chat-input-text").keydown(function(event){
+        if ( event.which == 13 ) {
+            $.ajax({
+                method: "POST",
+                url: "/app_dev.php/chat/post",
+                data: { 
+                    text: $("#chat-input-text").val()
+                },
+                dataType: 'json',
+                success: function(response){
+                    console.log(response);
+                }
+            })
+            event.preventDefault();
+        }
+    });
+    
+});
 
-    socket.onclose = function(event) {
-      if (event.wasClean) {
-        alert('Соединение закрыто чисто');
-      } else {
-        alert('Обрыв соединения'); // например, "убит" процесс сервера
-      }
-      alert('Код: ' + event.code + ' причина: ' + event.reason);
-    };
-
-    socket.onmessage = function(event) {
-      alert("Получены данные " + event.data);
-    };
-
-    socket.onerror = function(error) {
-      alert("Ошибка " + error.message);
-    };
-    
-    
-    }
-    
-    function send() {
-        socket.send("Привет");
-    }
 </script>
