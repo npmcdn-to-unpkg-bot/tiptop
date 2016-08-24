@@ -19,7 +19,7 @@ class DefaultController extends BaseController
         $pages = $em->getRepository('AppBundle:Page')
             ->findBySlug('home');
 
-        $homePage = ( is_array($pages) ) ? $pages[0] : null;
+        $homePage = ( is_array($pages) && isset($pages[0]) ) ? $pages[0] : null;
 
         return $this->render('AppBundle:Default:index.html.twig', array(
             'homePage' => $homePage

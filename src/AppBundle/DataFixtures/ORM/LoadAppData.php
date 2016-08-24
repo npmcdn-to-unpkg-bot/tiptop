@@ -33,12 +33,12 @@ class LoadAppData implements FixtureInterface
         $manager->persist($articlesBundle);
 
         // chat bundle
-//        $chatBundle = new Bundle();
-//        $chatBundle->setName('ChatBundle');
-//        $chatBundle->setIsActive(true);
-//        $chatBundle->setIsSystem(false);
-//        $chatBundle->setOrderBy(3);
-//        $manager->persist($chatBundle);
+        $chatBundle = new Bundle();
+        $chatBundle->setName('ChatBundle');
+        $chatBundle->setIsActive(true);
+        $chatBundle->setIsSystem(false);
+        $chatBundle->setOrderBy(3);
+        $manager->persist($chatBundle);
 
         $manager->flush();
     }

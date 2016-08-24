@@ -42,31 +42,28 @@ class Article extends Entity
      * @var string
      */
     private $image;
-    
+
     /**
-     * @var \DateTime $created
-     *
-     * @ODM\Date
+     * @ORM\Column(type="datetime", nullable=false)
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created", type="datetime")
+     *
+     * @var \DateTime
      */
     private $created;
 
     /**
-     * @var \DateTime $updated
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="change", field={"title", "body"})
      *
-     * @ODM\Date
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     * @var \DateTime
      */
     private $updated;
 
     /**
-     * @var \DateTime $deleted
-     *
-     * @ODM\Date
-     * @Gedmo\Timestampable(on="delete")
      * @ORM\Column(name="deleted", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="delete")
+     *
+     * @var \DateTime $deleted
      */
     private $deleted;
 

@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $( document ).ready(function() {
     
-    var conn = new ab.Session('ws://localhost:8080',
+    var conn = new ab.Session('ws://localhost:8181',
         function() {
             conn.subscribe('test', function(topic, data) {
                 // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
