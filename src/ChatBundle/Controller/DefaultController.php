@@ -30,7 +30,7 @@ class DefaultController extends Controller
         $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'test');
         $socket->connect("tcp://localhost:5555");
         
-        $socket->send(json_encode(["category" => "test"]));
+        $socket->send(json_encode(["category" => "test", "text" => $text]));
         
         return new JsonResponse(["message" => "success"]); 
     }

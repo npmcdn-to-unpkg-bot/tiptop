@@ -19,8 +19,7 @@ $( document ).ready(function() {
     var conn = new ab.Session('ws://localhost:8181',
         function() {
             conn.subscribe('test', function(topic, data) {
-                // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
-                console.log(topic, data);
+                $(".panel-body.content").append("<p>" + data.text + "</p>");
             });
         },
         function() {
@@ -30,6 +29,7 @@ $( document ).ready(function() {
     );
     
     $("#chat-input-text").keydown(function(event){
+        var self = $(this);
         if ( event.which == 13 ) {
             $.ajax({
                 method: "POST",
@@ -39,7 +39,9 @@ $( document ).ready(function() {
                 },
                 dataType: 'json',
                 success: function(response){
-                    console.log(response);
+                    if (response.message == "success") {
+                        self.val("");
+                    }
                 }
             })
             event.preventDefault();
