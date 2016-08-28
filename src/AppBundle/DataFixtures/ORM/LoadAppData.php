@@ -39,6 +39,14 @@ class LoadAppData implements FixtureInterface
         $chatBundle->setIsSystem(false);
         $chatBundle->setOrderBy(3);
         $manager->persist($chatBundle);
+        
+        // chat bundle
+        $pokerBundle = new Bundle();
+        $pokerBundle->setName('PokerBundle');
+        $pokerBundle->setIsActive(true);
+        $pokerBundle->setIsSystem(false);
+        $pokerBundle->setOrderBy(4);
+        $manager->persist($pokerBundle);
 
         $manager->flush();
     }
