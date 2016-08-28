@@ -71,6 +71,20 @@ class LoadPageData implements FixtureInterface
         $bonusPage->setUpdated(NULL);
         $bonusPage->setDeleted(NULL);
         $manager->persist($bonusPage);
+        
+        // bonus page
+        $pokerPage = new Page();
+        $pokerPage->setSlug('poker');
+        $pokerPage->setTitle('Покер');
+        $pokerPage->setImage('201308d051a3383e3bd66ce6a8810eabd3d51d26.jpeg');
+        $pokerPage->setNameInMenu('Покер');
+        $pokerPage->setBody('Покер');
+        $pokerPage->setKeywords('покер');
+        $pokerPage->setDescription('покер');
+        $pokerPage->setCreated(new \DateTime("now"));
+        $pokerPage->setUpdated(NULL);
+        $pokerPage->setDeleted(NULL);
+        $manager->persist($pokerPage);
 
         $manager->flush();
     }
