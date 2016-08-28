@@ -4,7 +4,7 @@
     
 {% block right_menu %}
     <ul class="row-admin-right">
-        <li><a class="btn btn-default margin-top" href="{{ path('_system_admin_pages_add') }}">Добавить</a></li>
+        <li><a class="btn btn-default margin-top" href="{{ path('app_backend_pages_add') }}">Добавить</a></li>
     </ul>
 {% endblock %}
     
@@ -14,7 +14,7 @@
         {% for item in pages %}
             <li class="media">
                 <div class="media-left">
-                    <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">
+                    <a href="{{ path('app_backend_pages_edit', { id: item.id }) }}">
                       {% if item.getWebPath() %}
                        <img class="media-object" width="64px" src="{{item.getWebPath()}}{#{ page.getWebPath() | imagine_filter('my_thumb', {"thumbnail": {"size": [64, 64] }}) }}" alt="{{ page.title }#}">
                       {% else %}  
@@ -26,8 +26,8 @@
                     <h4 class="media-heading">{{ item.title }}</h4>
                     <p>{{ item.description }}</p>
                     <p class="media-group-buttons">
-                        <a href="{{ path('app_admin_pages_delete', { id: item.id })}}" class="btn btn-primary" role="button">Удалить</a>
-                        <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}" class="btn btn-default" role="button">Редактировать</a>
+                        <a href="{{ path('app_backend_pages_delete', { id: item.id })}}" class="btn btn-primary" role="button">Удалить</a>
+                        <a href="{{ path('app_backend_pages_edit', { id: item.id }) }}" class="btn btn-default" role="button">Редактировать</a>
                     </p>
                 </div>
             </li>
@@ -42,17 +42,17 @@
                 <ul class="pagination pagination-sm">
 
                     <li {{ thisPage == 1 ? 'class="disabled"' }}>
-                        <a href="{{ path('system_admin_pages', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+                        <a href="{{ path('app_backend_pages', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
                     </li>
 
                     {% for i in 1..maxPages %}
                         <li {{ thisPage == i ? 'class="active"' }}>
-                        <a href="{{ path('system_admin_pages', {page: i}) }}">{{ i }}</a>
+                        <a href="{{ path('app_backend_pages', {page: i}) }}">{{ i }}</a>
                         </li>
                     {% endfor %}
 
                     <li {{ thisPage == maxPages ? 'class="disabled"' }}>
-                        <a href="{{ path('system_admin_pages', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+                        <a href="{{ path('app_backend_pages', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
                     </li>
                 </ul>
             </center>

@@ -39,30 +39,9 @@ _system_admin_index:
     path:  /admin
     defaults: { _controller: AppBundle:IndexAdmin:index }
 
-_system_admin_settings:
+app_admin_settings:
     path:  /admin/settings
     defaults: { _controller: AppBundle:SettingsAdmin:index }
 
-_system_page:
-    path: /page/{slug}.html
-    defaults: { _controller: AppBundle:Pages:Index }
-
-system_admin_pages_first:
-    path: admin/pages
-    defaults: { _controller: AppBundle:PagesAdmin:List }
-    
-system_admin_pages:
-    path: admin/pages/{page}
-    defaults: { _controller: AppBundle:PagesAdmin:List }
-
-_system_admin_pages_add:
-    path: admin/pages/add
-    defaults: { _controller: AppBundle:PagesAdmin:Add }
-
-_system_admin_pages_edit:
-    path: admin/pages/{id}/edit
-    defaults: { _controller: AppBundle:PagesAdmin:Edit }
-
-app_admin_pages_delete:
-    path: admin/pages/{id}/delete
-    defaults: { _controller: AppBundle:PagesAdmin:Delete }
+pages:
+    resource: "@AppBundle/Resources/config/routing/pages.yml"

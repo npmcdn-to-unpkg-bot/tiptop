@@ -14,7 +14,7 @@ class AdminMenuListener
 {
     public function onAdminMenuBuild(MenuEvent $event)
     {
-        $event->addItem('_system_admin_settings', 'Настройки');
-        $event->addItem('system_admin_pages_first', 'Странички');
+        $event->addItem('app_admin_settings', 'Настройки');
+        $event->addItem('app_backend_pages_first', 'Странички');
     }
 }

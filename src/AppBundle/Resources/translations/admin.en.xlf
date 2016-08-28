@@ -14,6 +14,10 @@
                 <source>page.deleted.success</source>
                 <target>Page "%name%" was deleted!</target>
             </trans-unit>
+            <trans-unit id="page.already_deleted.success">
+                <source>page.already_deleted.success</source>
+                <target>Page has been already removed!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

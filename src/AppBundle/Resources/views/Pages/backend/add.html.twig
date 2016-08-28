@@ -1,7 +1,5 @@
 {% extends "AppBundle::layout-admin.html.twig" %}
 
-{% block title "Symfony - Demos" %}
-    
 {% block head %}
     <script src="{{ asset('bundles/app/js/tinymce/tinymce.min.js') }}"></script>
     <script type="text/javascript">
@@ -16,11 +14,13 @@
         });
     </script>
 {% endblock %}
-    
+
 {% block content %}
-     
-    <a class="btn btn-default margin-top" href="{{ path('_system_admin_pages') }}">Назад</a>
-    
+
+    <a class="btn btn-default margin-top" href="{{ path('app_backend_pages_first') }}">
+        {{ 'back'|trans }}
+    </a>
+
     <hr/>
     
     {% form_theme form 'bootstrap_3_layout.html.twig' %}
@@ -29,5 +29,5 @@
     {{form_start(form)}}
     {{form_widget(form)}}
     {{form_end(form)}}
-
+    
 {% endblock %}

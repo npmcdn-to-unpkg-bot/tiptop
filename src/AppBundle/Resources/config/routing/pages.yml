@@ -1,0 +1,23 @@
+app_page:
+    path: /page/{slug}.html
+    defaults: { _controller: AppBundle:Backend/Pages:Index }
+
+app_backend_pages_first:
+    path: backend/pages
+    defaults: { _controller: AppBundle:Backend/Pages:List }
+    
+app_backend_pages_add:
+    path: backend/pages/add
+    defaults: { _controller: AppBundle:Backend/Pages:Add }
+    
+app_backend_pages:
+    path: backend/pages/{page}
+    defaults: { _controller: AppBundle:Backend/Pages:List }
+
+app_backend_pages_edit:
+    path: backend/pages/{id}/edit
+    defaults: { _controller: AppBundle:Backend/Pages:Edit }
+
+app_backend_pages_delete:
+    path: backend/pages/{id}/delete
+    defaults: { _controller: AppBundle:Backend/Pages:Delete }

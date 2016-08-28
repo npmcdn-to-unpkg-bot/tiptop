@@ -14,7 +14,7 @@ class LeftMenuListener
 {
     public function onLeftMenuBuild(LeftMenuEvent $event)
     {exit("!!!");
-        $event->addItem('_system_admin_settings', 'Настройки');
-        $event->addItem('_system_admin_pages', 'Странички');
+        $event->addItem('app_admin_settings', 'Настройки');
+        $event->addItem('app_admin_pages', 'Странички');
     }
 }

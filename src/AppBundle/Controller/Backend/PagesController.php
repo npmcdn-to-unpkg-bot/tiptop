@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Backend;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\PageType;
 use AppBundle\Entity\Page;
 
-class PagesAdminController extends Controller
+class PagesController extends Controller
 {
     public function ListAction($page = 1)
     {
@@ -17,7 +17,7 @@ class PagesAdminController extends Controller
         
         $maxPages = ceil($pagination->count() / $repo::limit);
         
-        return $this->render('AppBundle:PagesAdmin:list.html.twig', array(
+        return $this->render('AppBundle:Pages:backend/list.html.twig', array(
             'pages'     => $pagination->getIterator(),
             'maxPages'  => $maxPages,
             'thisPage'  => $page
@@ -47,10 +47,10 @@ class PagesAdminController extends Controller
                 )
             );
         
-            return $this->redirectToRoute('_system_admin_pages');
+            return $this->redirectToRoute('app_backend_pages_first');
         }
         
-        return $this->render('AppBundle:PagesAdmin:add.html.twig', array(
+        return $this->render('AppBundle:Pages:backend/add.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -80,10 +80,10 @@ class PagesAdminController extends Controller
                 )
             );
             
-            return $this->redirectToRoute('_system_admin_pages');
+            return $this->redirectToRoute('app_admin_pages');
         }
         
-        return $this->render('AppBundle:PagesAdmin:edit.html.twig', array(
+        return $this->render('AppBundle:Pages:admin/edit.html.twig', array(
                     'page' => $page,
                     'form' => $form->createView()
         ));
@@ -94,19 +94,28 @@ class PagesAdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $page = $em->getRepository('AppBundle:Page')
                        ->findOneById($id);
-        
-        $em->remove($page);
-        $em->flush();
-        
-        $this->addFlash(
-            'success',
-            $this->get('translator')->trans('page.deleted.success', array(
-                    '%name%' => $page->getTitle()
-                ),
-                'admin'
-            )
-        );
-        
-        return $this->redirectToRoute('_system_admin_pages');
+        if ($page)
+        {
+            $em->remove($page);
+            $em->flush();
+            
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans('page.deleted.success', array(
+                        '%name%' => $page->getTitle()
+                    ),
+                    'admin'
+                )
+            );
+        }
+        else {
+            
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans('page.already_deleted.success', array(), 'admin')
+            );
+        }
+
+        return $this->redirectToRoute('app_backend_pages_first');
     }
 }

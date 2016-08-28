@@ -172,16 +172,18 @@ class Page
      * @param string $title
      * @return Page
      */
-    public function setImage($filename)
+    public function setImage($file)
     {
-//        if (null !== $file)
-//        {
-//            $filename = sha1(uniqid(mt_rand(), true));
-//            $filename = $filename.'.'.$file->guessExtension();
-//            $file->move($this->getUploadRootDir(), $filename);
-
+        if ($file instanceof UploadedFile)
+        {
+            $filename = sha1(uniqid(mt_rand(), true));
+            $filename = $filename.'.'.$file->guessExtension();
+            $file->move($this->getUploadRootDir(), $filename);
             $this->image = $filename;
-//        }
+        }
+        elseif( is_string($file) ) {
+            $this->image = $file;
+        }
 
         return $this;
     }

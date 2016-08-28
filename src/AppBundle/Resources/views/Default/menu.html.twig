@@ -2,48 +2,10 @@
     <ul class="nav navbar-nav">
         {% for item in pages %}
             <li {% if routeName == item.slug %}class="active"{% endif %}>
-                <a href="{{ path('_system_page', {'slug': item.slug}) }}" alt="{{ item.nameInMenu }}">
+                <a href="{{ path('app_page', {'slug': item.slug}) }}" alt="{{ item.nameInMenu }}">
                     {{ item.nameInMenu }}
                 </a>
             </li>
         {% endfor %}
     </ul>
 </div>
-
-{#
-
-<div class="box home_box1 color1">
-    <a href="javascript::void();">
-        <img src="{{ asset('bundles/system/images/templatemo_services.jpg') }}" alt="Services" />
-    </a>
-</div>
-
-
-<div class="box home_box1 color2">
-    <a href="javascript::void();">
-        <img src="{{ asset('bundles/system/images/testimonial.jpg') }}" alt="Testimonial" />
-    </a>
-</div>
-
-<div class="box home_box2 color3">
-    <div id="social_links">
-        <a href="javascript::void();">
-            <img src="{{ asset('bundles/system/images/facebook.png') }}" alt="Facebook"></a>
-        <a href="javascript::void();">
-            <img src="{{ asset('bundles/system/images/flickr.png') }}" alt="Flickr"></a>
-        <a href="javascript::void();">
-            <img src="{{ asset('bundles/system/images/twitter.png') }}" alt="Twitter"></a>
-        <a href="javascript::void();">
-            <img src="{{ asset('bundles/system/images/youtube.png') }}" alt="Youtube"></a>
-        <a href="javascript::void();">
-            <img src="{{ asset('bundles/system/images/vimeo.png') }}" alt="Vimeo"></a>
-        <div class="clear h20"></div>
-        <h3>Social</h3>
-  </div>	
-</div>
-
-<div class="box home_box1 color4 no_mr">
-    <a href="{{ path('_system_page', {'slug': 'contacts'}) }}">
-        <img width="152px" src="{{ asset('bundles/system/images/e-mail_icon.png') }}" alt="Контакты" />
-    </a>
-</div>#}

@@ -14,6 +14,10 @@
                 <source>page.deleted.success</source>
                 <target>Страница "%name%" успешно удалена!</target>
             </trans-unit>
+            <trans-unit id="page.already_deleted.success">
+                <source>page.already_deleted.success</source>
+                <target>Страница уже удалена!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

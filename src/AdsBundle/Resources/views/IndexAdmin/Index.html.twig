@@ -16,7 +16,7 @@
         {% for item in ads %}
             <div class="media">
               <div class="media-left media-middle">
-                <a href="{{ path('_system_admin_pages_edit', { id: item.id }) }}">
+                <a href="{{ path('app_admin_pages_edit', { id: item.id }) }}">
                   <img class="media-object" src="{{ asset('bundles/system/images/empty.svg') }}" alt="{{ item.title }}">
                 </a>
               </div>
