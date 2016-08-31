@@ -61,7 +61,7 @@ class Article extends Entity
 
     /**
      * @ORM\Column(name="deleted", type="datetime", nullable=true)
-     * @Gedmo\Timestampable(on="delete")
+     * @Gedmo\Timestampable(on="change", field={"deleted"})
      *
      * @var \DateTime $deleted
      */
