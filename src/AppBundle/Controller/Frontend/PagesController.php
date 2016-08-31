@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Frontend;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ class PagesController extends Controller
         $page = $em->getRepository('AppBundle:Page')
                        ->findOneBySlug($slug);
         
-        return $this->render('AppBundle:Pages:page.html.twig',array(
+        return $this->render('AppBundle:Pages:frontend/page.html.twig',array(
             'page' => $page
         ));
     }

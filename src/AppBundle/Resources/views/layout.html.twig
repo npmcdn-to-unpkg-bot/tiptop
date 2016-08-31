@@ -56,13 +56,19 @@
         {% endfor %}
         <div class="row row-offcanvas row-offcanvas-right">
 
-            {% block content %}{% endblock %}
-
-            {% if  disableRightMenu is not defined or disableRightMenu != true %}
-                {{ render(controller('AppBundle:Default:RightMenu', { 'routeName' : app.request.attributes.get('_route') })) }}
-            {% endif %}
-
-            {{ render(controller('AppBundle:Default:RightWidget', { 'routeName' : app.request.attributes.get('_route') })) }}
+            <div class="col-sm-9">
+                {% block content %}{% endblock %}
+            </div>
+            
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                
+                {% if  disableRightMenu is not defined or disableRightMenu != true %}
+                    {{ render(controller('AppBundle:Default:RightMenu', { 'routeName' : app.request.attributes.get('_route') })) }}
+                {% endif %}
+                
+                {{ render(controller('AppBundle:Default:RightWidget', { 'routeName' : app.request.attributes.get('_route') })) }}
+                
+            </div>
             
         </div><!--/row-->
         

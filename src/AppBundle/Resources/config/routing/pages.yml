@@ -1,6 +1,6 @@
 app_page:
     path: /page/{slug}.html
-    defaults: { _controller: AppBundle:Backend/Pages:Index }
+    defaults: { _controller: AppBundle:Frontend/Pages:Index }
 
 app_backend_pages_first:
     path: backend/pages

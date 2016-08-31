@@ -1,6 +1,6 @@
 {% extends "AppBundle::layout.html.twig" %}
 
-{% block title "{{ page.title }}" %}
+{% block title %}{{ page.title }}{% endblock %}
 
 {% block content %}
         {{ page.body|raw }}

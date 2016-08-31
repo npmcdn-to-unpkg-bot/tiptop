@@ -1,0 +1,388 @@
+.header {
+  height: 25px;
+  background: #222;
+  color: #eee;
+  text-align: center;
+  font: 12px/25px Helvetica, Verdana, Sans-Serif;
+}
+.header > A {
+  color: #999;
+}
+
+#hand {
+  width: 150px;
+  height: 225px;
+}
+#hand > LI {
+  position: absolute;
+  -moz-transition: top 0.5s ease 0.1s, left 0.5s ease 0.2s, -moz-transform 0.5s ease 0.2s;
+  -o-transition: top 0.5s ease 0.1s, left 0.5s ease 0.2s, -o-transform 0.5s ease 0.2s;
+  -webkit-transition: top 0.5s ease, left 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transition-delay: 0.1s, 0.2s, 0.2s;
+  transition: top 0.5s ease 0.1s, left 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+}
+#hand > LI:nth-child(1) {
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+#hand > LI:nth-child(2) {
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+#hand > LI:nth-child(3) {
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -webkit-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+#hand > LI:nth-child(4) {
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
+}
+#hand > LI:hover {
+  left: 0;
+  top: -30px;
+  cursor: pointer;
+  -moz-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  -webkit-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+}
+#hand:hover > LI:nth-child(1) {
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+  left: 0px;
+}
+#hand:hover > LI:nth-child(2) {
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 30px;
+}
+#hand:hover > LI:nth-child(3) {
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+  left: 60px;
+}
+#hand:hover > LI:nth-child(4) {
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
+  left: 90px;
+}
+
+#spread {
+  width: 450px;
+  height: 250px;
+}
+#spread > LI {
+  position: absolute;
+  -moz-transition: top 0.5s ease 0.1s;
+  -o-transition: top 0.5s ease 0.1s;
+  -webkit-transition: top 0.5s ease;
+  -webkit-transition-delay: 0.1s;
+  transition: top 0.5s ease 0.1s;
+}
+#spread > LI:nth-child(1) {
+  -moz-transform: translate(0em, 16px) rotate(-40deg);
+  -ms-transform: translate(0em, 16px) rotate(-40deg);
+  -webkit-transform: translate(0em, 16px) rotate(-40deg);
+  transform: translate(0em, 16px) rotate(-40deg);
+}
+#spread > LI:nth-child(2) {
+  -moz-transform: translate(1.6em, 11px) rotate(-34deg);
+  -ms-transform: translate(1.6em, 11px) rotate(-34deg);
+  -webkit-transform: translate(1.6em, 11px) rotate(-34deg);
+  transform: translate(1.6em, 11px) rotate(-34deg);
+}
+#spread > LI:nth-child(3) {
+  -moz-transform: translate(3.2em, 7px) rotate(-28deg);
+  -ms-transform: translate(3.2em, 7px) rotate(-28deg);
+  -webkit-transform: translate(3.2em, 7px) rotate(-28deg);
+  transform: translate(3.2em, 7px) rotate(-28deg);
+}
+#spread > LI:nth-child(4) {
+  -moz-transform: translate(4.8em, 4px) rotate(-22deg);
+  -ms-transform: translate(4.8em, 4px) rotate(-22deg);
+  -webkit-transform: translate(4.8em, 4px) rotate(-22deg);
+  transform: translate(4.8em, 4px) rotate(-22deg);
+}
+#spread > LI:nth-child(5) {
+  -moz-transform: translate(6.4em, 2px) rotate(-16deg);
+  -ms-transform: translate(6.4em, 2px) rotate(-16deg);
+  -webkit-transform: translate(6.4em, 2px) rotate(-16deg);
+  transform: translate(6.4em, 2px) rotate(-16deg);
+}
+#spread > LI:nth-child(6) {
+  -moz-transform: translate(8em, 1px) rotate(-10deg);
+  -ms-transform: translate(8em, 1px) rotate(-10deg);
+  -webkit-transform: translate(8em, 1px) rotate(-10deg);
+  transform: translate(8em, 1px) rotate(-10deg);
+}
+#spread > LI:nth-child(7) {
+  -moz-transform: translate(9.6em, 1px) rotate(-4deg);
+  -ms-transform: translate(9.6em, 1px) rotate(-4deg);
+  -webkit-transform: translate(9.6em, 1px) rotate(-4deg);
+  transform: translate(9.6em, 1px) rotate(-4deg);
+}
+#spread > LI:nth-child(8) {
+  -moz-transform: translate(11.2em, 2px) rotate(2deg);
+  -ms-transform: translate(11.2em, 2px) rotate(2deg);
+  -webkit-transform: translate(11.2em, 2px) rotate(2deg);
+  transform: translate(11.2em, 2px) rotate(2deg);
+}
+#spread > LI:nth-child(9) {
+  -moz-transform: translate(12.8em, 4px) rotate(8deg);
+  -ms-transform: translate(12.8em, 4px) rotate(8deg);
+  -webkit-transform: translate(12.8em, 4px) rotate(8deg);
+  transform: translate(12.8em, 4px) rotate(8deg);
+}
+#spread > LI:nth-child(10) {
+  -moz-transform: translate(14.4em, 7px) rotate(14deg);
+  -ms-transform: translate(14.4em, 7px) rotate(14deg);
+  -webkit-transform: translate(14.4em, 7px) rotate(14deg);
+  transform: translate(14.4em, 7px) rotate(14deg);
+}
+#spread > LI:nth-child(11) {
+  -moz-transform: translate(16em, 11px) rotate(20deg);
+  -ms-transform: translate(16em, 11px) rotate(20deg);
+  -webkit-transform: translate(16em, 11px) rotate(20deg);
+  transform: translate(16em, 11px) rotate(20deg);
+}
+#spread > LI:nth-child(12) {
+  -moz-transform: translate(17.6em, 16px) rotate(26deg);
+  -ms-transform: translate(17.6em, 16px) rotate(26deg);
+  -webkit-transform: translate(17.6em, 16px) rotate(26deg);
+  transform: translate(17.6em, 16px) rotate(26deg);
+}
+#spread > LI:nth-child(13) {
+  -moz-transform: translate(19.2em, 22px) rotate(32deg);
+  -ms-transform: translate(19.2em, 22px) rotate(32deg);
+  -webkit-transform: translate(19.2em, 22px) rotate(32deg);
+  transform: translate(19.2em, 22px) rotate(32deg);
+}
+#spread > LI:hover {
+  left: 0;
+  top: -40px;
+  cursor: pointer;
+  -moz-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  -webkit-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+}
+
+#grid {
+  width: 800px;
+}
+#grid > LI {
+  position: relative;
+  float: left;
+  margin: 5px -46px 5px 0px;
+  -moz-transition: top 0.5s ease 0.1s, left 0.5s ease 0.1s;
+  -o-transition: top 0.5s ease 0.1s, left 0.5s ease 0.1s;
+  -webkit-transition: top 0.5s ease, left 0.5s ease;
+  -webkit-transition-delay: 0.1s, 0.1s;
+  transition: top 0.5s ease 0.1s, left 0.5s ease 0.1s;
+}
+#grid > LI:hover {
+  left: -40px;
+  top: -10px;
+  cursor: pointer;
+  -moz-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  -webkit-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+  box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.3), 0 0 50px rgba(255, 255, 200, 0.8);
+}
+
+#hand, #spread, #grid {
+  zoom: 1;
+}
+#hand:before, #spread:before, #grid:before, #hand:after, #spread:after, #grid:after {
+  content: "";
+  display: table;
+}
+#hand:after, #spread:after, #grid:after {
+  clear: both;
+}
+
+#hand, #spread, #grid {
+  border: 7px solid #030;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+#hand, #spread, #grid {
+  position: relative;
+  margin: 3% auto;
+}
+#hand > LI, #spread > LI, #grid > LI {
+  top: 0px;
+  left: 0px;
+  list-style: none;
+  width: 11rem;
+  height: 15.4rem;
+  background-color: #fff;
+  background-image: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/whitey.png");
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.5), 0 0 3px #966432;
+  -webkit-box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.5), 0 0 3px #966432;
+  box-shadow: inset 0 0 80px rgba(150, 100, 50, 0.5), 0 0 3px #966432;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-perspective: 1000;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -moz-transform: translateZ(0deg);
+  -webkit-transform: translateZ(0deg);
+  transform: translateZ(0deg);
+}
+
+#hand > LI[data-value*='♣'][data-value], #spread > LI[data-value*='♣'][data-value], #grid > LI[data-value*='♣'][data-value], #hand > LI[data-value*='♠'][data-value], #spread > LI[data-value*='♠'][data-value], #grid > LI[data-value*='♠'][data-value] {
+  color: #222;
+}
+#hand > LI[data-value*='♦'][data-value], #spread > LI[data-value*='♦'][data-value], #grid > LI[data-value*='♦'][data-value], #hand > LI[data-value*='♥'][data-value], #spread > LI[data-value*='♥'][data-value], #grid > LI[data-value*='♥'][data-value] {
+  color: #a00;
+}
+#hand > LI[data-value]:before, #spread > LI[data-value]:before, #grid > LI[data-value]:before, #hand > LI[data-value]:after, #spread > LI[data-value]:after, #grid > LI[data-value]:after {
+  text-align: center;
+  outline: 1px dashed #999;
+  content: attr(data-value);
+  width: 1em;
+  position: absolute;
+  font-size: 1.8em;
+  line-height: 0.75em;
+}
+#hand > LI[data-value]:after, #spread > LI[data-value]:after, #grid > LI[data-value]:after {
+  right: 0;
+  bottom: 4%;
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  outline: 1px dashed red;
+}
+#hand > LI[data-value] > P, #spread > LI[data-value] > P, #grid > LI[data-value] > P {
+  outline: 1px solid red;
+  display: block;
+  margin: 0 auto;
+  width: 7rem;
+  height: 100%;
+  font-size: 4.5rem;
+}
+#hand > LI[data-value] > P:after, #spread > LI[data-value] > P:after, #grid > LI[data-value] > P:after {
+  content: attr(data-suit);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#hand > LI[data-value] > P > SPAN:first-child, #spread > LI[data-value] > P > SPAN:first-child, #grid > LI[data-value] > P > SPAN:first-child {
+  display: none;
+}
+#hand > LI[data-value^='A'][data-value] > P, #spread > LI[data-value^='A'][data-value] > P, #grid > LI[data-value^='A'][data-value] > P {
+  width: 0.5em;
+  text-align: center;
+}
+#hand > LI[data-value^='A'][data-value] > P:after, #spread > LI[data-value^='A'][data-value] > P:after, #grid > LI[data-value^='A'][data-value] > P:after {
+  content: "";
+}
+#hand > LI[data-value='A ♠'][data-value] > P, #spread > LI[data-value='A ♠'][data-value] > P, #grid > LI[data-value='A ♠'][data-value] > P {
+  font-size: 10em;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 -3px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+#hand > LI[data-value^='2'][data-value] > P, #spread > LI[data-value^='2'][data-value] > P, #grid > LI[data-value^='2'][data-value] > P {
+  width: 0.5em;
+  text-align: center;
+}
+#hand > LI[data-value^='3'][data-value] > P, #spread > LI[data-value^='3'][data-value] > P, #grid > LI[data-value^='3'][data-value] > P {
+  text-align: center;
+}
+#hand > LI[data-value^='3'][data-value] > P:before, #spread > LI[data-value^='3'][data-value] > P:before, #grid > LI[data-value^='3'][data-value] > P:before {
+  transform: rotate(180deg);
+  text-shadow: 0px 68px 0px;
+}
+#hand > LI[data-value^='4'][data-value] > P, #spread > LI[data-value^='4'][data-value] > P, #grid > LI[data-value^='4'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px;
+}
+#hand > LI[data-value^='4'][data-value] > P:before, #spread > LI[data-value^='4'][data-value] > P:before, #grid > LI[data-value^='4'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px orange;
+}
+#hand > LI[data-value^='5'][data-value] > P, #spread > LI[data-value^='5'][data-value] > P, #grid > LI[data-value^='5'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 35px 80px 0px;
+}
+#hand > LI[data-value^='5'][data-value] > P:before, #spread > LI[data-value^='5'][data-value] > P:before, #grid > LI[data-value^='5'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px;
+}
+#hand > LI[data-value^='6'][data-value] > P, #spread > LI[data-value^='6'][data-value] > P, #grid > LI[data-value^='6'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 4.6rem 68px 0px, 0px 68px 0px;
+}
+#hand > LI[data-value^='6'][data-value] > P:before, #spread > LI[data-value^='6'][data-value] > P:before, #grid > LI[data-value^='6'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px;
+}
+#hand > LI[data-value^='7'][data-value] > P, #spread > LI[data-value^='7'][data-value] > P, #grid > LI[data-value^='7'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 4.6rem 68px 0px, 0px 68px 0px, 33px 200px 0px;
+}
+#hand > LI[data-value^='7'][data-value] > P:before, #spread > LI[data-value^='7'][data-value] > P:before, #grid > LI[data-value^='7'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px;
+}
+#hand > LI[data-value^='8'][data-value] > P, #spread > LI[data-value^='8'][data-value] > P, #grid > LI[data-value^='8'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 4.6rem 68px 0px, 0px 68px 0px, 33px 200px 0px;
+}
+#hand > LI[data-value^='8'][data-value] > P:before, #spread > LI[data-value^='8'][data-value] > P:before, #grid > LI[data-value^='8'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px, -33px 200px 0px;
+}
+#hand > LI[data-value^='9'][data-value] > P, #spread > LI[data-value^='9'][data-value] > P, #grid > LI[data-value^='9'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 4.6rem 70px 0px, 0px 70px 0px, 33px 15px 0px;
+}
+#hand > LI[data-value^='9'][data-value] > P:before, #spread > LI[data-value^='9'][data-value] > P:before, #grid > LI[data-value^='9'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px, 0px 70px 0px, -4.6rem 70px 0px;
+}
+#hand > LI[data-value^='10'][data-value] > P, #spread > LI[data-value^='10'][data-value] > P, #grid > LI[data-value^='10'][data-value] > P {
+  text-shadow: 4.6rem 0px 0px, 4.6rem 70px 0px, 0px 70px 0px, 33px 15px 0px;
+}
+#hand > LI[data-value^='10'][data-value] > P:before, #spread > LI[data-value^='10'][data-value] > P:before, #grid > LI[data-value^='10'][data-value] > P:before {
+  text-shadow: -4.6rem 0px 0px, 0px 70px 0px, -4.6rem 70px 0px, -33px 15px 0px;
+}
+#hand > LI[data-value^='J'][data-value] > P, #spread > LI[data-value^='J'][data-value] > P, #grid > LI[data-value^='J'][data-value] > P, #hand > LI[data-value^='Q'][data-value] > P, #spread > LI[data-value^='Q'][data-value] > P, #grid > LI[data-value^='Q'][data-value] > P, #hand > LI[data-value^='K'][data-value] > P, #spread > LI[data-value^='K'][data-value] > P, #grid > LI[data-value^='K'][data-value] > P {
+  width: 98%;
+  height: 98%;
+  margin: auto;
+  color: transparent;
+  border: 1px solid #222;
+}
+#hand > LI[data-value^='J'][data-value] > P, #spread > LI[data-value^='J'][data-value] > P, #grid > LI[data-value^='J'][data-value] > P {
+  background-image: url("http://placekitten.com/95/175");
+}
+#hand > LI[data-value^='Q'][data-value] > P, #spread > LI[data-value^='Q'][data-value] > P, #grid > LI[data-value^='Q'][data-value] > P {
+  background-image: url("http://placekitten.com/95/176");
+}
+#hand > LI[data-value^='K'][data-value] > P, #spread > LI[data-value^='K'][data-value] > P, #grid > LI[data-value^='K'][data-value] > P {
+  background-image: url("http://placekitten.com/95/177");
+}
+
+#hand > LI:not([data-value]) > P, #spread > LI:not([data-value]) > P, #grid > LI:not([data-value]) > P {
+  width: 90%;
+  height: 92%;
+  margin: 5% auto 0;
+  background-image: url("http://www.titanui.com/wp-content/uploads/2013/01/Violet-Classical-Pattern-Background-1.jpg");
+  background-position: center center;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}

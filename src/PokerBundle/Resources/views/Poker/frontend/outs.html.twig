@@ -1,0 +1,58 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}Покер: считаем ауты{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/poker/css/poker.css') }}">
+    
+{#    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/poker/css/reset.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/poker/css/style.css') }}">#}
+    
+    <script src="{{ asset('bundles/poker/js/poker.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="poker-table">
+        <div class="poker-content-center poker-floap">
+            <ul class="card-wrap">
+                <li class="card"><p><span></span><span></span></p></li>
+                <li class="card"><p><span></span><span></span></p></li>
+                <li class="card"><p><span></span><span></span></p></li>
+                <li class="card"><p><span></span><span></span></p></li>
+                <li class="card"><p><span></span><span></span></p></li>
+            </ul>
+        </div>
+        <div class="poker-content-center">
+            <ul id="poker-my-cards" class="card-wrap">
+                <li class="card"><p><span></span><span></span></p></li>
+                <li class="card"><p><span></span><span></span></p></li>
+            </ul>
+        </div>
+        
+        <div class="card-selector">
+            <ul id="hand">
+              <li data-value="A ♠"><p data-suit="♠"><span>A</span><span>♠</span></p></li>
+              <li data-value="A ♦"><p data-suit="♦"><span>A</span><span>♦</span></p></li>
+              <li data-value="A ♣"><p data-suit="♣"><span>A</span><span>♣</span></p></li>
+              <li data-value="A ♥"><p data-suit="♥"><span>A</span><span>♥</span></p></li>
+            </ul>
+
+            <ul id="spread" style="display: none;">
+              <li data-value="A ♦"><p data-suit="♦"><span>A</span><span>♦</span></p></li>
+              <li data-value="2 ♦"><p data-suit="♦"><span>2</span><span>♦</span></p></li>
+              <li data-value="3 ♦"><p data-suit="♦"><span>3</span><span>♦</span></p></li>
+              <li data-value="4 ♦"><p data-suit="♦"><span>4</span><span>♦</span></p></li>
+              <li data-value="5 ♦"><p data-suit="♦"><span>5</span><span>♦</span></p></li>
+              <li data-value="6 ♦"><p data-suit="♦"><span>6</span><span>♦</span></p></li>
+              <li data-value="7 ♦"><p data-suit="♦"><span>7</span><span>♦</span></p></li>
+              <li data-value="8 ♦"><p data-suit="♦"><span>8</span><span>♦</span></p></li>
+              <li data-value="9 ♦"><p data-suit="♦"><span>9</span><span>♦</span></p></li>
+              <li data-value="10 ♦"><p data-suit="♦"><span>10</span><span>♦</span></p></li>
+              <li data-value="J ♦"><p data-suit="♦"><span>J</span><span>♦</span></p></li>
+              <li data-value="Q ♦"><p data-suit="♦"><span>Q</span><span>♦</span></p></li>
+              <li data-value="K ♦"><p data-suit="♦"><span>K</span><span>♦</span></p></li>
+            </ul>
+        </div>
+        
+    </div>
+{% endblock %}
